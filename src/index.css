@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Julius+Sans+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+:root {
+  --bg-desktop-icon-color: #1f1f1f4b;
+  --bg-desktop-icon-color-hover: #1f1f1f6d;
+  --bg-window-color: #1f1f1fd5;
+  --bg-window-bar-color: #393333d5;
+  --header-one-color: rgb(236, 246, 251);
+  --header-two-color: rgb(32, 28, 28);
+}
+
+.playfair-display-bold {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}  
+.julius-sans-one-regular {
+  font-family: "Julius Sans One", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}  
+.julius-sans-one-bold {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}  
+
+  
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(40, 44, 52, 0.3); 
+    border-radius: 10px; 
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--bg-window-bar-color);
+    border-radius: 10px;
+    border: 2px solid rgba(40, 44, 52, 0.1); 
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--header-one-color); 
+  }
+  
+  .custom-scrollbar {
+    scrollbar-width: thin; 
+    scrollbar-color: var(--bg-window-bar-color) rgba(40, 44, 52, 0.3);
+  }
+
+  .maximized-window {
+    border-radius: 0 !important; 
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    transform: none !important;
+  }
+  
+
