@@ -88,8 +88,7 @@ const ContactContent = (): JSX.Element => (
             className="group flex items-center justify-center space-x-3 p-3 sm:p-4 rounded-lg bg-[var(--bg-window-bar-color)] bg-opacity-50 shadow-md
                        hover:bg-opacity-70 hover:shadow-lg transition-all duration-200 transform hover:scale-105"
           >
-            {item.icon}{" "}
-            {/* This will now correctly render either Lucide or an img tag */}
+            {item.icon}
             <span className="text-white text-base md:text-lg font-medium group-hover:text-blue-300 transition-colors duration-200">
               {item.name}
             </span>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Shell, Calendar, Clock, Github } from "lucide-react";
 
-const desktopIconsOptions = "w-4 apspect-square";
+const desktopIconsOptions = "w-4 aspect-square"; // Corrected 'apspect-square' to 'aspect-square'
 const ActionBar: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
@@ -16,7 +16,7 @@ const ActionBar: React.FC = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0 bg-black w-full h-5 opacity-50 flex flex-row items-center justify-between py-4 px-8 gap-x-4">
+    <div className="absolute inset-0 z-10 bg-black w-full h-5 opacity-50 flex flex-row items-center justify-between py-4 px-8 gap-x-4">
       <div className="flex flex-col">
         <Shell className="w-8 aspect-square" />
       </div>
@@ -30,7 +30,14 @@ const ActionBar: React.FC = () => {
           {currentTime.toLocaleTimeString()}
         </span>
         <span className="flex flex-row justify-center items-center gap-1">
-          <Github className={desktopIconsOptions} />
+          <a
+            href="https://github.com/Qwertuhh/Portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
+            <Github className={desktopIconsOptions} />
+          </a>
         </span>
       </div>
     </div>
