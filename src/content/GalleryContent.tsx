@@ -41,7 +41,11 @@ const GalleryContent = (): JSX.Element => (
         className="grid grid-cols-1 md:grid-cols-2 gap-4 font-semibold font-julius-sans-one bg-[var(--bg-window-color)] p-4 rounded-lg shadow-md my-2 text-base md:text-lg ring-1 ring-gray-100 hover:ring-gray-400 transition-all duration-200 cursor-pointer items-center"
       >
         {image && (
-          <img src={image} alt={description} className="rounded-lg shadow-md max-w-full h-auto" />
+          <img
+            src={image}
+            alt={description}
+            className="rounded-lg shadow-md max-w-full h-auto"
+          />
         )}
         {video && (
           <iframe
@@ -71,12 +75,15 @@ const GalleryContent = (): JSX.Element => (
       </div>
     ))}
     <hr className="w-full h-0.5 my-2" />
-    <a href="https://git.io/typing-svg">
-      <img
-        src="https://readme-typing-svg.demolab.com?font=%22Playwrite+AT%22&size=24&letterSpacing=2px&pause=1000&color=447CF7&background=00000001&random=false&width=435&lines=Thanks+for+viewing"
-        alt="Typing SVG"
-      />
-    </a>
+    <div className="flex justify-center">
+      <a href="https://git.io/typing-svg">
+        <img
+          src="https://readme-typing-svg.demolab.com?font=%22Playwrite+AT%22&size=24&letterSpacing=2px&pause=1000&color=447CF7&background=00000001&random=false&width=435&lines=Thanks+for+viewing"
+          alt="Typing SVG"
+          className="w-[26rem]"
+        />
+      </a>
+    </div>
   </div>
 );
 

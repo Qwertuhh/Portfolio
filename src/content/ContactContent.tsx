@@ -97,12 +97,15 @@ const ContactContent = (): JSX.Element => (
       </div>
     </div>
     <hr className="w-full h-0.5 my-2" />
-    <a href="https://git.io/typing-svg">
-      <img
-        src="https://readme-typing-svg.demolab.com?font=%22Playwrite+AT%22&size=24&letterSpacing=2px&pause=1000&color=447CF7&background=00000001&random=false&width=435&lines=Thanks+for+connecting"
-        alt="Typing SVG"
-      />
-    </a>
+    <div className="flex justify-center">
+      <a href="https://git.io/typing-svg">
+        <img
+          src="https://readme-typing-svg.demolab.com?font=%22Playwrite+AT%22&size=24&letterSpacing=2px&pause=1000&color=447CF7&background=00000001&random=false&width=435&lines=Thanks+for+connecting"
+          alt="Typing SVG"
+          className="w-[26rem]"
+        />
+      </a>
+    </div>
   </div>
 );
 

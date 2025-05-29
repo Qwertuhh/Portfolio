@@ -11,17 +11,14 @@ const projects = [
     icon: <PanelTop className="w-6 h-6 inline-block mr-2" />,
     description: `
     <p class="my-4">
-    MyBackend is a large-scale project developed during my backend development journey. 
-    It explores key concepts like models, controllers, routers, request handling, and query optimization. 
-    I extensively tested APIs using Postman and worked with aggregation pipelines to improve data processing. 
-    The API will soon be publicly available with further enhancements planned.
+   MyBackend is a robust backend architecture that combines features from <span class="font-mono text-white w-2xl">YouTube and Twitter APIs</span>, developed during my journey as a backend developer. It explores key concepts such as models, controllers, routers, request handling, and query optimization, providing efficient and scalable solutions. I extensively tested the APIs using Postman and implemented aggregation pipelines to improve data management. The API will be publicly available soon, with further enhancements planned.
     </p>
     `,
     link: "https://github.com/Qwertuhh/MyBackend",
     badges: ["Node.js", "Express", "MongoDB"],
   },
   {
-    title: "welltrack",
+    title: "Welltrack",
     icon: <PanelTop className="w-6 h-6 inline-block mr-2" />,
     description: `
     <p class="my-4">
@@ -32,9 +29,7 @@ const projects = [
   },
   {
     title: "ObjBranch",
-    icon: (
-     <Package className="w-6 h-6 inline-block mr-2" />
-    ),
+    icon: <Package className="w-6 h-6 inline-block mr-2" />,
     description: `
       <p class="my-4">
         obj-branch is a JavaScript module designed to simplify operations on adjacent fields within an object, enabling convenient manipulations of object properties. With support for arithmetic operations like addition, subtraction, multiplication, division, and modulo, developers can efficiently perform calculations on structured data. Easily installable via npm, obj-branch streamlines data processing with intuitive syntax for branching and field operations. Contributions and enhancements are welcomed to further refine its functionality. &nbsp;<span class="text-blue-500">Let me know if you'd like any tweaks!</span>
@@ -49,7 +44,7 @@ const ProjectsContent = (): JSX.Element => (
     <h2 className="text-3xl md:text-4xl font-bold text-left text-[var(--header-one-color)]">
       My Projects
     </h2>
-    <p className="text-base font-light text-gray-300 text-left">
+    <p className="text-base font-light text-gray-300 text-left my-4">
       Explore some of my flagship projects that demonstrate my expertise in
       creating intuitive and engaging digital solutions. Each project showcases
       a unique aspect of my skills and dedication to delivering high-quality
@@ -91,12 +86,15 @@ const ProjectsContent = (): JSX.Element => (
       ))}
     </div>
     <hr className="w-full h-0.5 my-2" />
+    <div className="flex justify-center">
     <a href="https://git.io/typing-svg">
       <img
         src="https://readme-typing-svg.demolab.com?font=%22Playwrite+AT%22&size=24&letterSpacing=2px&pause=1000&color=447CF7&background=00000001&random=false&width=435&lines=Thanks+for+reviewing"
         alt="Typing SVG"
+        className="w-[26rem]"
       />
     </a>
+    </div>
   </div>
 );
 
