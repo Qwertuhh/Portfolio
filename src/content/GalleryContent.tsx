@@ -13,12 +13,12 @@ interface GalleryItem {
 }
 const GalleryContentStock: GalleryItem[] = [
   {
-    image: "../../public/gallery/postman.png",
+    image: "../../gallery/postman.png",
     description: "Writting and testing APIs build during my backend development journey.",
     badges: ["Node.js", "Express", "MongoDB"],
   },
   {
-    video: "../../public/gallery/welltrack.mp4",
+    video: "../../gallery/welltrack.mp4",
     description: "Welltrack web app developed for a hackathon pitch, designed to help users seamlessly record daily entries, track habits, and monitor their mood.",
     badges: ["Welltrack", "AI", "Web Development"],
   },
