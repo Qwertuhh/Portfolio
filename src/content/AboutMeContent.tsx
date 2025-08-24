@@ -9,12 +9,26 @@ import type { JSX } from "react";
 const AboutMeContent = (): JSX.Element => (
   <div className="text-2xl font-bold text-[var(--header-one-color)] flex flex-col gap-1">
     Hi, I'm Qwertuhh
+    <img src="qwertuhh_banner.png" alt="qwertuhh banner" className="max-h-60 w-auto" />
     <p className="text-sm font-light text-white ">
       Welcome to my portfolio, where I showcase some of my favorite projects and
       share my story as a web developer. I'm passionate about creating
       user-friendly digital experiences and always looking for ways to improve
       my craft.
     </p>
+    <hr className="w-full h-0.5 my-2" />
+    <p className="text-sm font-light text-white flex items-center gap-2">
+      I'm also know as
+      <span className="font-bold flex items-center gap-2 text-2xl underline">
+        <img
+          src="arihant_jain.png"
+          alt="arihant jain"
+          className="w-8 h-8 rounded-full"
+        />
+        Arihant Jain
+      </span>
+    </p>
+    <hr className="w-full h-0.5 my-2" />
     <img
       alt="github contribution grid snake animation"
       src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg"

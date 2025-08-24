@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import type { JSX } from "react";
-import DesktopIcon from "./components/DesktopIcon";
 import Window from "./components/Window";
 import AboutMeContent from "./content/AboutMeContent";
 import ProjectsContent from "./content/ProjectsContent";
 import ContactContent from "./content/ContactContent";
 import GalleryContent from "./content/GalleryContent";
-import type { OpenWindow } from "./types"; // Import the OpenWindow interface
+import type { OpenWindow } from "./types";
 import Spline from "@splinetool/react-spline";
-import {
-  Rocket,
-  UserRoundSearch,
-  Signature,
-  Images,
-} from "lucide-react";
+// Icons are now imported in their respective components
 import ActionBar from "./components/ActionBar";
+import DesktopIcons from "./components/DesktopIcons";
 /**
  * Main App Component for the Desktop-Style Portfolio Website.
  * Manages the state of open windows and renders desktop icons.
  */
-const desktopIconsOptions = "w-10 h-10";
-const windowIconSize = "w-6 aspect-square";
+const desktopIconsOptions = "w-8 h-8 md:w-10 md:h-10";
+const windowIconSize = "w-5 h-5 md:w-6 md:h-6";
 function App(): JSX.Element {
 
   // State to manage which windows are open, their content, and position
@@ -109,65 +104,33 @@ function App(): JSX.Element {
       {/* Navbar */}
       <ActionBar />
 
-      <div className="absolute inset-0 z-10 p-4 md:p-8">
-        {/* Content overlayed on top of Spline */}
-        <div className="bg-[var(--bg-desktop-icon-color)] p-4 rounded-lg  fixed bottom-0 left-1/2 transform -translate-x-1/2 scale-75 flex flex-row justify-between items-center">
-          <img
-            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGgyOXhycTA5azd4ZmMxZWxydXk5Y2txOXc3eHhvdHV2N3JncGhyYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xThuWbpKdoOPIbQzcY/giphy.webp"
-            alt="Shell"
-            className="w-14 h-14 m-4"
-          />
-          {/* Desktop Icons */}
-          <div className="grid grid-cols-4 gap-4 w-150">
-            <DesktopIcon
-              icon=<Signature className={desktopIconsOptions} />
-              label="About Me"
-              onClick={() =>
-                openWindow("about", "About Me", <Signature className={windowIconSize}/>,<AboutMeContent />)
-              }
-            />
-            <DesktopIcon
-              icon=<Rocket className={desktopIconsOptions} />
-              label="My Projects"
-              onClick={() =>
-                openWindow("projects", "My Projects",<Rocket className={windowIconSize}/>, <ProjectsContent />)
-              }
-            />
-            <DesktopIcon
-              icon=<UserRoundSearch className={desktopIconsOptions} />
-              label="Contact"
-              onClick={() =>
-                openWindow("contact", "Contact Me",<UserRoundSearch className={windowIconSize}/>, <ContactContent />)
-              }
-            />
-            <DesktopIcon
-              icon=<Images className={desktopIconsOptions} />
-              label="Gallery"
-              onClick={() =>
-                openWindow("gallery", "My Gallery", <Images className={windowIconSize}/>,<GalleryContent />)
-              }
-            />
-          </div>
-        </div>
+      <DesktopIcons
+        openWindow={openWindow}
+        desktopIconsOptions={desktopIconsOptions}
+        windowIconSize={windowIconSize}
+        AboutMeContent={AboutMeContent}
+        ProjectsContent={ProjectsContent}
+        GalleryContent={GalleryContent}
+        ContactContent={ContactContent}
+      />
 
-        {/* Render Open Windows */}
-        {openWindows.map((window: OpenWindow) => (
-          <Window
-            key={window.id}
-            id={window.id}
-            title={window.title}
-            icon={window.icon}
-            initialX={window.x}
-            initialY={window.y}
-            zIndex={window.zIndex}
-            isActive={activeWindowId === window.id}
-            onClose={closeWindow}
-            onFocus={bringToFront}
-          >
-            {window.content}
-          </Window>
-        ))}
-      </div>
+      {/* Render Open Windows */}
+      {openWindows.map((window: OpenWindow) => (
+        <Window
+          key={window.id}
+          id={window.id}
+          title={window.title}
+          icon={window.icon}
+          initialX={window.x}
+          initialY={window.y}
+          zIndex={window.zIndex}
+          isActive={activeWindowId === window.id}
+          onClose={closeWindow}
+          onFocus={bringToFront}
+        >
+          {window.content}
+        </Window>
+      ))}
     </div>
   );
 }

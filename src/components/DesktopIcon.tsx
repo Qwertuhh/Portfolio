@@ -28,7 +28,7 @@ const DesktopIcon = ({
 
   return (
     <div
-      className="relative flex flex-col items-center" // Add relative positioning for the tooltip
+      className="relative flex flex-col items-center cursor-crosshair" // Add relative positioning for the tooltip
       onMouseEnter={() => setShowTooltip(true)} // Show tooltip on mouse enter
       onMouseLeave={() => setShowTooltip(false)} // Hide tooltip on mouse leave
     >
