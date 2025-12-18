@@ -1,0 +1,29 @@
+{
+  "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v11/terminal-keeper.json",
+  "theme": "tribe",
+  "active": "default",
+  "activateOnStartup": true,
+  "keepExistingTerminals": false,
+  "sessions": {
+    "default": [
+      {
+        "name": "Root",
+        "autoExecuteCommands": true,
+        "icon": "root-folder",
+        "color": "terminal.ansiRed",
+        "commands": [
+          "echo Qwertuhh Portfolio"
+        ]
+      },
+      {
+        "name": "Dev",
+        "autoExecuteCommands": true,
+        "icon": "server",
+        "color": "terminal.ansiGreen",
+        "commands": [
+          "bun run dev"
+        ]
+      }
+    ]
+  }
+}
