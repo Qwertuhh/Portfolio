@@ -1,66 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Julius+Sans+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import "tailwindcss";
+
 :root {
-  --bg-desktop-icon-color: #1f1f1f4b;
-  --bg-desktop-icon-color-hover: #1f1f1f6d;
-  --bg-window-color: #1f1f1fd5;
-  --bg-window-bar-color: #393333d5;
-  --header-one-color: rgb(223, 238, 246);
-  --header-two-color: rgb(32, 28, 28);
+  /* ================================= */
+  /* NEUTRAL COLOR SCALE */
+  /* ================================= */
+  --neutral-0: #ffffff;
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+
+  /* ================================= */
+  /* APP BRAND / PRIMARY TOKENS */
+  /* ================================= */
+
+  --primary-color: var(--color-neutral-0) ;
+  --primary-color-hover: var(--neutral-800);
+  --primary-color-active: var(--neutral-950);
+  --primary-color-disabled: var(--neutral-400);
+
+  --primary-contrast-color: var(--neutral-0);
+
+  /* ================================= */
+  /* BACKGROUND */
+  /* ================================= */
+
+  --app-bg-color: var(--neutral-0);
+  --app-bg-muted: var(--neutral-50);
+  --app-bg-subtle: var(--neutral-100);
+  --app-bg-inverse: var(--neutral-900);
+
+  /* ================================= */
+  /* SURFACE (Cards, Modals, Panels) */
+  /* ================================= */
+
+  --surface-color: var(--neutral-0);
+  --surface-elevated: var(--neutral-0);
+  --surface-hover: var(--neutral-50);
+  --surface-active: var(--neutral-100);
+
+  /* ================================= */
+  /* TEXT */
+  /* ================================= */
+
+  --text-color-primary: var(--neutral-900);
+  --text-color-secondary: var(--neutral-600);
+  --text-color-muted: var(--neutral-500);
+  --text-color-inverse: var(--neutral-0);
+  --text-color-disabled: var(--neutral-400);
+
+  /* ================================= */
+  /* BORDER */
+  /* ================================= */
+
+  --border-color-default: var(--neutral-200);
+  --border-color-strong: var(--neutral-300);
+  --border-color-muted: var(--neutral-100);
+  --border-color-focus: var(--neutral-900);
+
+  /* ================================= */
+  /* STATE COLORS (NEUTRAL APP) */
+  /* ================================= */
+
+  --state-hover-bg: var(--neutral-50);
+  --state-active-bg: var(--neutral-100);
+  --state-selected-bg: var(--neutral-200);
+  --state-disabled-bg: var(--neutral-100);
+
+  /* ================================= */
+  /* SHADOWS */
+  /* ================================= */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12);
 }
 
-.playfair-display-bold {
-  font-family: "Playfair Display", serif;
+
+
+
+.funnel-display-regular {
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.funnel-display-bold {
+  font-family: "Funnel Display", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-}  
-.julius-sans-one-regular {
-  font-family: "Julius Sans One", sans-serif;
+}
+
+.jetbrains-mono-regular {
+  font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-}  
-.julius-sans-one-bold {
-  font-family: "Julius Sans One", sans-serif;
-  font-weight: 700;
+}
+
+.jetbrains-mono-semibold {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 600;
   font-style: normal;
-}  
+}
 
-  
 
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 8px; 
-    height: 8px; 
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(40, 44, 52, 0.3); 
-    border-radius: 10px; 
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--bg-window-bar-color);
-    border-radius: 10px;
-    border: 2px solid rgba(40, 44, 52, 0.1); 
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: var(--header-one-color); 
-  }
-  
-  .custom-scrollbar {
-    scrollbar-width: thin; 
-    scrollbar-color: var(--bg-window-bar-color) rgba(40, 44, 52, 0.3);
-  }
+.jetbrains-mono-bold {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
 
-  .maximized-window {
-    border-radius: 0 !important; 
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    transform: none !important;
-  }
-  
 
+.fraunces-regular {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 1;
+}
