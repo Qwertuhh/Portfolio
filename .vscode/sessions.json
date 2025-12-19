@@ -12,7 +12,7 @@
         "icon": "root-folder",
         "color": "terminal.ansiRed",
         "commands": [
-          "echo Qwertuhh Portfolio"
+          "echo \"Qwertuhh's Portfolio\""
         ]
       },
       {
