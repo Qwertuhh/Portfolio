@@ -1,15 +1,48 @@
 import { Typewriter } from "@/components/ui/typewriter";
-import { DottedGlowBackground } from "./ui/dotted-glow-background";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
+import clsx from "clsx";
 
+const profileIcons =
+  "w-16 rounded-[50px] p-1 border-2 border-solid border-black";
 function HeroComponent() {
   return (
-    <main className="flex flex-row justify-center items-center h-screen">
-      <DottedGlowBackground className="opacity-8" />
-      <Typewriter speed={0.06}>
-        <h1 className="text-8xl funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent">
-          Hello World
-        </h1>
-      </Typewriter>
+    <main className="flex flex-col justify-center items-center h-full">
+      <div className="w-[var(--main-width)] p-2">
+        {/* <DottedGlowBackground className="opacity-8" /> */}
+        <div className="flex flex-row gap-1 items-left">
+          <img
+            src="./profile-image/qwertuhh.svg"
+            alt="qwertuhh"
+            className={clsx(profileIcons)}
+          />
+          <img
+            src="./profile-image/arihant_jain.png"
+            alt="arihant"
+            className={clsx(profileIcons)}
+          />
+        </div>
+        <div className="flex flex-col">
+          <Typewriter speed={0.06}>
+            <h1 className="text-6xl funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent">
+              I'm Arihant Jain
+            </h1>
+          </Typewriter>
+          <p className="muted funnel-display-regular">AKA Qwertuhh</p>
+        </div>
+        <div className="flex flex-col gap-4 my-12 text-justify">
+          <p className="cascadia-code-regular text-xl text-justify">
+            Welcome to my portfolio, where I showcase some of my best work and
+            share my story as a developer. always looking for ways to improve my
+            craft.
+          </p>
+          <p className="cascadia-code-regular text-xl text-justify">
+            An enthusiastic learner who is greatly interested in programming and
+            Applied Artificial Intelligence. With a strong programming
+            background, I started my journey since <b>7th grade</b> to solve
+            real-world problems.
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
