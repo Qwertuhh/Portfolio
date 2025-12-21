@@ -7,8 +7,8 @@ const profileIcons =
 function HeroComponent() {
   return (
     <main className="flex flex-col justify-center items-center h-full">
-      <div className="w-[var(--main-width)] p-2">
-        {/* <DottedGlowBackground className="opacity-8" /> */}
+      <div className="w-(--main-width) p-2">
+        <DottedGlowBackground className="opacity-8" />
         <div className="flex flex-row gap-1 items-left">
           <img
             src="./profile-image/qwertuhh.svg"

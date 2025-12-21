@@ -1,17 +1,12 @@
 import { Gift } from "lucide-react";
-import { NoisyBg } from "@/components/ui/noisy-bg";
+import ImageBg from "@/components/ui/image-bg";
 
 function AboutMe() {
   return (
-    <NoisyBg bgColor="bg-gradient-to-b from-[var(--bg-primary)] to-[var(--bg-secondary)]">
+    <ImageBg imageSrc="./noise.png">
       <div className="flex flex-col justify-center items-center fira-code-regular max-w-4xl mx-auto h-screen w-(--main-width)">
         <div className="flex flex-col justify-center items-center ">
-          <p className="jetbrains-mono-regular text-xl text-left">
-            Welcome to my portfolio, where I showcase some of my best work and
-            share my story as a developer. always looking for ways to improve my
-            craft.
-          </p>
-          <p className="text-xl text-left">
+          <p className="bricolage-grotesque-regular text-xl text-left">
             An enthusiastic learner who is greatly interested in programming and
             Applied Artificial Intelligence. With a strong programming
             background, I started my journey since <b>7th grade</b> to solve
@@ -26,7 +21,7 @@ function AboutMe() {
           alt="snake game"
         />
       </div>
-    </NoisyBg>
+    </ImageBg>
   );
 }
 

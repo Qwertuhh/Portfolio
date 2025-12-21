@@ -27,7 +27,7 @@ function NoisyBg({
       <img
         alt="noisy background"
         className={clsx(
-          "absolute inset-0 pointer-events-none mix-blend-overlay bg-noise z-0",
+          "absolute z-0",
           imageClassName
         )}
         src={noiseImage}
