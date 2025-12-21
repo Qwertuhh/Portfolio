@@ -1,6 +1,8 @@
 import { Typewriter } from "@/components/ui/typewriter";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import clsx from "clsx";
+import Tooltip from "./ui/tool-tip";
+
 
 const profileIcons =
   "w-16 rounded-[50px] p-1 border-2 border-solid border-black";
@@ -10,16 +12,23 @@ function HeroComponent() {
       <div className="w-(--main-width) p-2">
         <DottedGlowBackground className="opacity-8" />
         <div className="flex flex-row gap-1 items-left">
+          {/* <BounceTitleOfImage imageSrc="./profile-image/qwertuhh.svg" imageClassName={profileIcons}/> */}
+          <Tooltip label="Qwertuhh">
+            
           <img
             src="./profile-image/qwertuhh.svg"
             alt="qwertuhh"
             className={clsx(profileIcons)}
           />
+          </Tooltip>
+
+          <Tooltip label="Arihant Jain">
           <img
             src="./profile-image/arihant_jain.png"
             alt="arihant"
             className={clsx(profileIcons)}
-          />
+            />
+            </Tooltip>
         </div>
         <div className="flex flex-col">
           <Typewriter speed={0.06}>
