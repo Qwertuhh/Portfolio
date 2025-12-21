@@ -3,9 +3,9 @@ import ImageBg from "@/components/ui/image-bg";
 
 function AboutMe() {
   return (
-    <ImageBg imageSrc="./noise.png">
-      <div className="flex flex-col justify-center items-center fira-code-regular max-w-4xl mx-auto h-screen w-(--main-width)">
-        <div className="flex flex-col justify-center items-center ">
+    <ImageBg imageSrc="./noise.webp">
+      <div className="main-div fira-code-regular max-w-4xl mx-auto h-screen w-(--main-width)">
+        <div className="main-div ">
           <p className="bricolage-grotesque-regular text-xl text-left">
             An enthusiastic learner who is greatly interested in programming and
             Applied Artificial Intelligence. With a strong programming
