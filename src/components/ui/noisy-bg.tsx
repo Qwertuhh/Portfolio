@@ -2,37 +2,39 @@ import React from "react";
 import clsx from "clsx";
 
 interface NoisyBgProps {
-  opacity?: number;
+  children: React.ReactNode;
+  bgColor?: string;
   dark?: boolean;
   className?: string;
-  children?: React.ReactNode;
+  imageClassName?: string;
 }
 
 /**
  * A noisy background component with configurable opacity and dark/light mode
  */
 function NoisyBg({
-  opacity = 0.03,
+  children,
+  bgColor = "var(--bg-secondary)",
   dark = false,
   className = "",
-  children,
+  imageClassName,
 }: NoisyBgProps) {
   const noiseImage = dark ? "/dark-noise.webp" : "/light-noise.webp";
 
   return (
-    <div className={`relative ${className}`}>
-      {/* Base background or content */}
-      {children}
-
-      {/* Noise overlay */}
+    <div className={clsx("relative", className, bgColor)}>
+      {/* Noise overlay behind content */}
       <img
         alt="noisy background"
         className={clsx(
-          "absolute inset-0 pointer-events-none mix-blend-overlay bg-noise",
-          opacity
+          "absolute inset-0 pointer-events-none mix-blend-overlay bg-noise z-0",
+          imageClassName
         )}
         src={noiseImage}
       />
+
+      {/* Content on top of noise */}
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 function Navbar() {
   return (
-    <nav className="flex flex-row justify-center items-center p-4 h-[6rem]">
-      <div className="flex flex-row items-center justify-between gap-4 border-2 border-black rounded-full w-[30rem]">
+    <nav className="flex flex-row justify-center items-center p-4 h-[var(--navbar-height)]">
+      <div className="flex flex-row items-center justify-between gap-4 border-2 border-black rounded-full w-[var(--main-width)]">
         <img
           src="./profile-image/neutral_qwertuhh.svg"
           alt="neutral qwertuhh logo"

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:wght@100..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:wght@100..800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -118,6 +118,15 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
+  
+
+  /* ================================= */
+  /* Background */
+  /* ================================= */
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #bbb;
+  
   /* ================================= */
   /* Dimensions */
   /* ================================= */
@@ -198,6 +207,25 @@
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+
+
+.bricolage-grotesque-regular {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.bricolage-grotesque-bold {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 @theme inline {

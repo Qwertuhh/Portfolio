@@ -30,16 +30,10 @@ function HeroComponent() {
           <p className="muted funnel-display-regular">AKA Qwertuhh</p>
         </div>
         <div className="flex flex-col gap-4 my-12 text-justify">
-          <p className="cascadia-code-regular text-xl text-justify">
-            Welcome to my portfolio, where I showcase some of my best work and
-            share my story as a developer. always looking for ways to improve my
-            craft.
-          </p>
-          <p className="cascadia-code-regular text-xl text-justify">
+          <p className="bricolage-grotesque-regular text-xl text-justify">
             An enthusiastic learner who is greatly interested in programming and
             Applied Artificial Intelligence. With a strong programming
-            background, I started my journey since <b>7th grade</b> to solve
-            real-world problems.
+            background.
           </p>
         </div>
       </div>
