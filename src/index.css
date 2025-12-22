@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Doto:wght@100..900&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:wght@100..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Doto:wght,ROND@100..900,100&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:wght@100..800&family=League+Script&family=Rouge+Script&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -238,6 +238,19 @@
   font-style: normal;
   font-variation-settings: "ROND" 0;
 }
+
+.league-script-regular {
+  font-family: "League Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rouge-script-regular {
+  font-family: "Rouge Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

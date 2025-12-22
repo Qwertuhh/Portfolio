@@ -15,4 +15,9 @@ interface SocialLink {
   icon: React.ReactNode;
 }
 
-export type { ProjectThumbnailType, Project, SocialLink };
+interface Skill {
+  name: string;
+  icon: React.ReactNode;
+}
+
+export type { ProjectThumbnailType, Project, SocialLink, Skill };

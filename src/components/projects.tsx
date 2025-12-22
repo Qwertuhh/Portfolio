@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 const projectsShowcase: Project[] = [
   {
     title: "My Backend",
-    imageSrc: "./gallery/postman.png",
+    imageSrc: "./gallery/postman.webp",
     type: "IMAGE",
     description:
       "Writting and testing APIs build during my backend development journey.",
@@ -45,10 +45,11 @@ function ProjectsFeatures(project: Project) {
             <img
               alt="Project Thumbnail"
               src={imageSrc}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover" 
+              loading="lazy"
             />
           ) : (
-            <video controls className="w-full h-full object-cover">
+            <video controls className="w-full h-full object-cover" preload="auto">
               <source src={imageSrc} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

@@ -4,31 +4,28 @@ import clsx from "clsx";
 import Tooltip from "@/components/ui/tool-tip";
 import { SocialLinks } from "@/components/social-links";
 
-const profileIcons =
-  "main-border-type cursor-pointer";
+const profileIcons = "main-border-type cursor-pointer";
 function HeroComponent() {
   return (
     <main className="flex flex-col justify-center items-center h-full">
       <div className="w-(--main-width) p-2">
         <DottedGlowBackground className="opacity-8" />
         <div className="flex flex-row gap-1 items-left">
-          {/* <BounceTitleOfImage imageSrc="./profile-image/qwertuhh.svg" imageClassName={profileIcons}/> */}
           <Tooltip label="Qwertuhh" className="text-xl">
-            
-          <img
-            src="./profile-image/qwertuhh.svg"
-            alt="qwertuhh"
-            className={clsx(profileIcons)}
-          />
+            <img
+              src="./profile-image/qwertuhh.svg"
+              alt="qwertuhh"
+              className={clsx(profileIcons)}
+            />
           </Tooltip>
 
           <Tooltip label="Arihant Jain" className="text-xl">
-          <img
-            src="./profile-image/arihant_jain.png"
-            alt="arihant"
-            className={clsx(profileIcons)}
+            <img
+              src="./profile-image/arihant_jain.png"
+              alt="arihant"
+              className={clsx(profileIcons)}
             />
-            </Tooltip>
+          </Tooltip>
         </div>
         <div className="flex flex-col">
           <Typewriter speed={0.06}>
@@ -36,6 +33,9 @@ function HeroComponent() {
               I'm Arihant Jain
             </h1>
           </Typewriter>
+          <p className="rouge-script-regular text-3xl w-fit ml-auto">
+            a developer
+          </p>
           <p className="muted funnel-display-regular">AKA Qwertuhh</p>
         </div>
         <div className="flex flex-col gap-4 my-12 text-justify">
@@ -45,7 +45,7 @@ function HeroComponent() {
             background.
           </p>
         </div>
-        <SocialLinks/>
+        <SocialLinks />
       </div>
     </main>
   );
