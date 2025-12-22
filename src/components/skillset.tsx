@@ -16,25 +16,41 @@ import NextIcon from "@/assets/nextjs.svg";
 import NetlifyIcon from "@/assets/netlify.svg";
 import DocusaurusIcon from "@/assets/docusaurus.svg";
 
+import IconBadge from "@/components/ui/icon-badge";
+
 const skillSet: Skill[] = [
-  { name: "Bun", icon: <BunIcon /> },
-  { name: "NPM", icon: <NpmIcon /> },
-  { name: "Git", icon: <GitIcon /> },
-  { name: "GitHub", icon: <GithubIcon /> },
-  { name: "JavaScript", icon: <JsIcon /> },
-  { name: "React", icon: <ReactIcon /> },
-  { name: "TypeScript", icon: <TsIcon /> },
-  { name: "Node.js", icon: <NodeIcon /> },
-  { name: "Python", icon: <PythonIcon /> },
-  { name: "Rust", icon: <RustIcon /> },
-  { name: "MongoDB", icon: <MongoIcon /> },
-  { name: "Prisma", icon: <PrismaIcon /> },
-  { name: "Next.js", icon: <NextIcon /> },
-  { name: "Netlify", icon: <NetlifyIcon /> },
-  { name: "Docusaurus", icon: <DocusaurusIcon /> },
+  { name: "Bun", icon: BunIcon },
+  { name: "NPM", icon: NpmIcon },
+  { name: "Git", icon: GitIcon },
+  { name: "GitHub", icon: GithubIcon },
+  { name: "JavaScript", icon: JsIcon },
+  { name: "React", icon: ReactIcon },
+  { name: "TypeScript", icon: TsIcon },
+  { name: "Node.js", icon: NodeIcon },
+  { name: "Python", icon: PythonIcon },
+  { name: "Rust", icon: RustIcon },
+  { name: "MongoDB", icon: MongoIcon },
+  { name: "Prisma", icon: PrismaIcon },
+  { name: "Next.js", icon: NextIcon },
+  { name: "Netlify", icon: NetlifyIcon },
+  { name: "Docusaurus", icon: DocusaurusIcon },
 ];
 function SkillSet() {
-  return <div>Skill Set</div>;
+  return (
+    <div className="flex flex-row flex-wrap h-auto">
+      {skillSet.map((skill, idx) => {
+        const { name, icon } = skill;
+        return (
+
+          <IconBadge
+            icon={icon}
+            label={name}
+            key={idx}
+            />
+        );
+      })}
+    </div>
+  );
 }
 
 export default SkillSet;

@@ -2,6 +2,7 @@ import { Gift } from "lucide-react";
 import ImageBg from "@/components/ui/image-bg";
 import Tooltip from "@/components/ui/tool-tip";
 import Experience from "@/assets/experience.svg";
+import SkillSet from "@/components/skillset";
 
 function AboutMe() {
   const experienceYear = new Date().getFullYear() - 2022;
@@ -41,6 +42,7 @@ function AboutMe() {
             </h2>
           </Tooltip>
         </div>
+        <SkillSet />
       </div>
     </ImageBg>
   );
