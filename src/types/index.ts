@@ -9,4 +9,10 @@ interface Project {
   githubLink: string;
 }
 
-export type { ProjectThumbnailType, Project };
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: React.ReactNode;
+}
+
+export type { ProjectThumbnailType, Project, SocialLink };

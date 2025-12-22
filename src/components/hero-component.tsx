@@ -1,11 +1,11 @@
 import { Typewriter } from "@/components/ui/typewriter";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import clsx from "clsx";
-import Tooltip from "./ui/tool-tip";
-
+import Tooltip from "@/components/ui/tool-tip";
+import { SocialLinks } from "@/components/social-links";
 
 const profileIcons =
-  "w-16 rounded-[50px] p-1 border-2 border-solid border-black";
+  "main-border-type cursor-pointer";
 function HeroComponent() {
   return (
     <main className="flex flex-col justify-center items-center h-full">
@@ -13,7 +13,7 @@ function HeroComponent() {
         <DottedGlowBackground className="opacity-8" />
         <div className="flex flex-row gap-1 items-left">
           {/* <BounceTitleOfImage imageSrc="./profile-image/qwertuhh.svg" imageClassName={profileIcons}/> */}
-          <Tooltip label="Qwertuhh">
+          <Tooltip label="Qwertuhh" className="text-xl">
             
           <img
             src="./profile-image/qwertuhh.svg"
@@ -22,7 +22,7 @@ function HeroComponent() {
           />
           </Tooltip>
 
-          <Tooltip label="Arihant Jain">
+          <Tooltip label="Arihant Jain" className="text-xl">
           <img
             src="./profile-image/arihant_jain.png"
             alt="arihant"
@@ -45,6 +45,7 @@ function HeroComponent() {
             background.
           </p>
         </div>
+        <SocialLinks/>
       </div>
     </main>
   );

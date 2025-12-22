@@ -1,12 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import clsx from "clsx";
 
 export default function Tooltip({
   label,
   children,
+  className
 }: {
   label: string;
   children: React.ReactNode;
+  className?: string
 }) {
   const [open, setOpen] = useState(false);
 
@@ -30,15 +33,17 @@ export default function Tooltip({
               stiffness: 320,
               damping: 22,
             }}
-            className="
+            className={clsx(`
               pointer-events-none
               absolute -top-10 left-1/2 -translate-x-1/2
               origin-center
+              text-xm
               whitespace-nowrap rounded-lg
               doto-bold
-              bg-(--neutral-900) px-3 py-1.5 text-xs text-white
+              bg-(--neutral-900) px-3 py-1 my-4 text-white
               shadow-lg backdrop-blur
-            "
+            `,
+            className)}
           >
             {label}
           </motion.div>
