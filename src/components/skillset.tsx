@@ -31,7 +31,7 @@ const skillSet: Skill[] = [
   { name: "Rust", icon: RustIcon, description: "I know it's bold concepts but I'm learning it" },
   { name: "MongoDB", icon: MongoIcon, description: "My first inrtoduction to Database" },
   { name: "Prisma", icon: PrismaIcon, description: "Best for migration of a database" },
-  { name: "Next.js", icon: NextIcon, description: "Nice fullstack Framework" },
+  { name: "Next.js", icon: NextIcon, description: "Best JS fullstack Framework" },
   { name: "Netlify", icon: NetlifyIcon, description: "Nice static site host" },
   { name: "Docusaurus", icon: DocusaurusIcon, description: "Best framework to host docs" },
 ];

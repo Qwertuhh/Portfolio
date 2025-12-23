@@ -39,11 +39,14 @@ export default function Tooltip({
               absolute -top-10 left-1/2 -translate-x-1/2
               origin-center
               text-xm
-              whitespace-nowrap rounded-lg
+              whitespace-normal max-w-xs
+              rounded-lg
               doto-bold
               bg-(--neutral-900) px-3 py-1 my-4 text-white
               shadow-lg backdrop-blur
               bricolage-grotesque-regular
+              wrap-break-word
+              z-90
               `
             )}
           >
