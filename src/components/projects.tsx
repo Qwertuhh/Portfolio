@@ -1,7 +1,7 @@
 import ImageBg from "@/components/ui/image-bg";
 import { LiquidGlass } from "@/components/ui/liquidGlass";
 import type { Project } from "@/types";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, SquareArrowOutUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const projectsShowcase: Project[] = [
@@ -10,7 +10,7 @@ const projectsShowcase: Project[] = [
     imageSrc: "./gallery/postman.webp",
     type: "IMAGE",
     description:
-      "Writting and testing APIs build during my backend development journey.",
+      "In  this project I first time introduced to backend system. In this project I learn about API development, database management, and server-side logic.",
     tags: ["Node JS", "Express", "MongoDB"],
     githubLink: "https://github.com/qwertuhh/mybackend",
   },
@@ -45,41 +45,47 @@ function ProjectsFeatures(project: Project) {
             <img
               alt="Project Thumbnail"
               src={imageSrc}
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           ) : (
-            <video controls className="w-full h-full object-cover" preload="auto">
+            <video
+              controls
+              className="w-full h-full object-cover"
+              preload="auto"
+            >
               <source src={imageSrc} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           )}
         </div>
-        <p className="bricolage-grotesque-regular text-white/80 max-w-md">
-          {description}
-        </p>
-        <div className="flex flex-wrap gap-2 justify-center">
-          {tags.map((tag, idx) => {
-            return (
-              <span
-                key={idx}
-                className="cascadia-code-bold px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white"
-              >
-                {tag}
-              </span>
-            );
-          })}
-        </div>
+        <div className="flex flex-col gap-3 items-start justify-start">
+          <p className="bricolage-grotesque-regular text-white/80 max-w-md text-left">
+            {description}
+          </p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {tags.map((tag, idx) => {
+              return (
+                <span
+                  key={idx}
+                  className="cascadia-code-bold px-3 py-1 bg-white/30 rounded-[10px] text-sm text-white"
+                >
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
         {githubLink && (
           <a
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg text-white hover:bg-white/30 transition-colors"
+            className="flex flex-row items-center text-white cascadia-code-regular underline"
           >
-            View on GitHub
+            View code <SquareArrowOutUpRight className="w-4 h-4 mx-2"/>
           </a>
         )}
+        </div>
       </div>
     </div>
   );

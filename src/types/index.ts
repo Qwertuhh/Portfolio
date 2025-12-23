@@ -16,8 +16,9 @@ interface SocialLink {
 }
 
 interface Skill {
-  name: string;
   icon?: string;
+  name: string;
+  description: string;
 }
 
 export type { ProjectThumbnailType, Project, SocialLink, Skill };

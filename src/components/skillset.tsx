@@ -19,35 +19,29 @@ import DocusaurusIcon from "@/assets/docusaurus.svg";
 import IconBadge from "@/components/ui/icon-badge";
 
 const skillSet: Skill[] = [
-  { name: "Bun", icon: BunIcon },
-  { name: "NPM", icon: NpmIcon },
-  { name: "Git", icon: GitIcon },
-  { name: "GitHub", icon: GithubIcon },
-  { name: "JavaScript", icon: JsIcon },
-  { name: "React", icon: ReactIcon },
-  { name: "TypeScript", icon: TsIcon },
-  { name: "Node.js", icon: NodeIcon },
-  { name: "Python", icon: PythonIcon },
-  { name: "Rust", icon: RustIcon },
-  { name: "MongoDB", icon: MongoIcon },
-  { name: "Prisma", icon: PrismaIcon },
-  { name: "Next.js", icon: NextIcon },
-  { name: "Netlify", icon: NetlifyIcon },
-  { name: "Docusaurus", icon: DocusaurusIcon },
+  { name: "Bun", icon: BunIcon, description: "Bun is a fast, secure, and cross-platform and my favourite JavaScript runtime." },
+  { name: "NPM", icon: NpmIcon, description: "JS script package manager" },
+  { name: "Git", icon: GitIcon, description: "Version control system" },
+  { name: "GitHub", icon: GithubIcon, description: "Code hosting platform" },
+  { name: "JavaScript", icon: JsIcon, description: "My favourite programming language" },
+  { name: "React", icon: ReactIcon, description: "Most popular JS library" },
+  { name: "TypeScript", icon: TsIcon, description: "This programming language makes JS my favourite, well it's a not interpreter directly by runtime enviroment." },
+  { name: "Node.js", icon: NodeIcon, description: "Most popular JS runtime enviroment but like Bun" },
+  { name: "Python", icon: PythonIcon, description: "Everybody loves it but I hate it!" },
+  { name: "Rust", icon: RustIcon, description: "I know it's bold concepts but I'm learning it" },
+  { name: "MongoDB", icon: MongoIcon, description: "My first inrtoduction to Database" },
+  { name: "Prisma", icon: PrismaIcon, description: "Best for migration of a database" },
+  { name: "Next.js", icon: NextIcon, description: "Nice fullstack Framework" },
+  { name: "Netlify", icon: NetlifyIcon, description: "Nice static site host" },
+  { name: "Docusaurus", icon: DocusaurusIcon, description: "Best framework to host docs" },
 ];
 function SkillSet() {
   return (
     <div className="flex flex-row flex-wrap h-auto">
       {skillSet.map((skill, idx) => {
-        const { name, icon } = skill;
         return (
-
-          <IconBadge
-            icon={icon}
-            label={name}
-            key={idx}
-            />
-        );
+            <IconBadge {...skill} key={idx}/>
+        );  
       })}
     </div>
   );

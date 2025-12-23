@@ -5,11 +5,11 @@ import clsx from "clsx";
 export default function Tooltip({
   label,
   children,
-  className
+  className,
 }: {
   label: string;
   children: React.ReactNode;
-  className?: string
+  className?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -33,7 +33,9 @@ export default function Tooltip({
               stiffness: 320,
               damping: 22,
             }}
-            className={clsx(`
+            className={clsx(
+              className,
+              `
               pointer-events-none
               absolute -top-10 left-1/2 -translate-x-1/2
               origin-center
@@ -42,8 +44,9 @@ export default function Tooltip({
               doto-bold
               bg-(--neutral-900) px-3 py-1 my-4 text-white
               shadow-lg backdrop-blur
-            `,
-            className)}
+              bricolage-grotesque-regular
+            `
+            )}
           >
             {label}
           </motion.div>

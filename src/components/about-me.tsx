@@ -10,17 +10,16 @@ function AboutMe() {
     <ImageBg imageSrc="./noise.webp">
       <div className="main-div max-w-4xl mx-auto h-screen w-(--main-width)">
         <div className="main-div ">
-          <p className="bricolage-grotesque-regular text-xl text-left">
-            An enthusiastic learner who is greatly interested in programming and
-            Applied Artificial Intelligence. With a strong programming
-            background, I started my journey since <b>7th grade</b> to solve
-            real-world problems.
+          <p className="bricolage-grotesque-regular text-xl my-4 text-justify">
+            I love solving problems. Programming feels like my superpower. I
+            chose this path because it gives meaning to my life. I can&apos;t solve
+            everyone&apos;s problems, but I always try my best—and that effort
+            matters. Through my work, I find stability, purpose, and happiness.
+            When I solve problems for others, I feel connected to them, and in
+            that connection, I feel connected to life itself.
           </p>
         </div>
-        <img
-          src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg"
-          alt="snake game"
-        />
+        <SkillSet />
         <div className="flex fira-code-regular flex-row space-around w-full justify-between my-4">
           <Tooltip
             label={`Birthday, ${new Date().getFullYear() - 2010} year's old`}
@@ -42,7 +41,6 @@ function AboutMe() {
             </h2>
           </Tooltip>
         </div>
-        <SkillSet />
       </div>
     </ImageBg>
   );
