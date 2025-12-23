@@ -5,21 +5,21 @@ type Direction = "left" | "top" | "right" | "bottom";
 
 interface HoverFlipTextProps {
   children: React.ReactNode;
-  flipText: string;
+  text: string;
   direction?: Direction;
   className?: string;
 }
 
 function HoverTextInSlide({
   children,
-  flipText,
+  text,
   direction = "left",
   className = "",
 }: HoverFlipTextProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   // Split text into characters for animation
-  const chars = flipText.split("");
+  const chars = text.split("");
 
   // Get animation properties based on direction
   const getDirectionAnimation = (dir: Direction) => {

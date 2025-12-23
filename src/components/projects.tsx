@@ -4,6 +4,7 @@ import type { Project } from "@/types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ProjectCard from "@/components/ui/project-card";
+import ClassicWebsiteButton from "@/components/classic-website-button";
 
 const projectsShowcase: Project[] = [
   {
@@ -26,8 +27,6 @@ const projectsShowcase: Project[] = [
     sourceCodeLink: "https://github.com/qwertuhh/welltrack",
   },
 ];
-
-
 
 function Projects() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -87,65 +86,68 @@ function Projects() {
   }, []);
 
   return (
-    <ImageBg imageSrc="./black-forest.webp">
-      <div className="main-div h-screen">
-        <div className="relative">
-          <LiquidGlass className="w-(--main-width) mx-auto rounded-4xl">
-            <div
-              ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide snap-x snap-mandatory"
-              onScroll={checkScrollability}
-            >
-              <div className="flex">
-                {projectsShowcase.map((project, idx) => {
-                  return (
-                    <div key={idx} className="min-w-full snap-center">
-                      <ProjectCard {...project} />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </LiquidGlass>
-
-          {/* Project indicator */}
-          <div className="absolute bottom--4 left-1/2 -translate-x-1/2 flex gap-2 my-2">
-            {projectsShowcase.map((_, idx) => (
+    <div id="projects">
+      <ImageBg imageSrc="./black-forest.webp">
+        <div className="main-div h-screen">
+          <div className="relative">
+            <LiquidGlass className="w-(--main-width) mx-auto rounded-4xl">
               <div
-                key={idx}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  idx === currentProjectIndex ? "bg-white w-6" : "bg-white/40"
-                }`}
-              />
-            ))}
+                ref={scrollContainerRef}
+                className="overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+                onScroll={checkScrollability}
+              >
+                <div className="flex">
+                  {projectsShowcase.map((project, idx) => {
+                    return (
+                      <div key={idx} className="min-w-full snap-center">
+                        <ProjectCard {...project} />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </LiquidGlass>
+
+            {/* Project indicator */}
+            <div className="absolute bottom--4 left-1/2 -translate-x-1/2 flex gap-2 my-2">
+              {projectsShowcase.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    idx === currentProjectIndex ? "bg-white w-6" : "bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Left Arrow */}
+            {canScrollLeft && (
+              <button
+                onClick={() => scroll("left")}
+                title="Previous project"
+                aria-label="Previous project"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/20 backdrop-blur-sm transition-all opacity-100 hover:bg-white/30"
+              >
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </button>
+            )}
+
+            {/* Right Arrow */}
+            {canScrollRight && (
+              <button
+                onClick={() => scroll("right")}
+                title="Next project"
+                aria-label="Next project"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/20 backdrop-blur-sm transition-all opacity-100 hover:bg-white/30"
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
+            )}
           </div>
-
-          {/* Left Arrow */}
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll("left")}
-              title="Previous project"
-              aria-label="Previous project"
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/20 backdrop-blur-sm transition-all opacity-100 hover:bg-white/30"
-            >
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-          )}
-
-          {/* Right Arrow */}
-          {canScrollRight && (
-            <button
-              onClick={() => scroll("right")}
-              title="Next project"
-              aria-label="Next project"
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/20 backdrop-blur-sm transition-all opacity-100 hover:bg-white/30"
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-          )}
         </div>
-      </div>
-    </ImageBg>
+        <ClassicWebsiteButton />
+      </ImageBg>
+    </div>
   );
 }
 

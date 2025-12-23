@@ -7,10 +7,10 @@ import Projects from "@/components/projects";
 function App(): JSX.Element {
   return (
     <div className=" h-[calc(100vh-var(--navbar-height))]">
-      <Navbar/>
+      <Navbar />
       <HeroComponent />
-      <AboutMe/>
-      <Projects/>
+      <AboutMe />
+      <Projects />
     </div>
   );
 }

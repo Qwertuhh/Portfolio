@@ -56,7 +56,7 @@ function ProjectCard(project: Project) {
           </div>
           <div className="flex flex-row gap-2">
             {sourceCodeLink && (
-              <HoverTextInSlide flipText="Code" className={hoverTextInSlideClassName} direction="right">
+              <HoverTextInSlide text="Code" className={hoverTextInSlideClassName} direction="right">
                 <a
                   title="View source code"
                   href={sourceCodeLink}
@@ -69,7 +69,7 @@ function ProjectCard(project: Project) {
               </HoverTextInSlide>
             )}
             {previewLink && (
-              <HoverTextInSlide flipText="Preview" className={hoverTextInSlideClassName} direction="right">
+              <HoverTextInSlide text="Preview" className={hoverTextInSlideClassName} direction="right">
                 <a
                   title="View project"
                   href={previewLink}
