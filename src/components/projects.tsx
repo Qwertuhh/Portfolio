@@ -1,8 +1,9 @@
 import ImageBg from "@/components/ui/image-bg";
 import { LiquidGlass } from "@/components/ui/liquidGlass";
 import type { Project } from "@/types";
-import { ChevronLeft, ChevronRight, SquareArrowOutUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import ProjectCard from "@/components/ui/project-card";
 
 const projectsShowcase: Project[] = [
   {
@@ -12,7 +13,8 @@ const projectsShowcase: Project[] = [
     description:
       "In  this project I first time introduced to backend system. In this project I learn about API development, database management, and server-side logic.",
     tags: ["Node JS", "Express", "MongoDB"],
-    githubLink: "https://github.com/qwertuhh/mybackend",
+    sourceCodeLink: "https://github.com/qwertuhh/mybackend",
+    previewLink: "https://mybackend.vercel.app/",
   },
   {
     title: "Welltrack",
@@ -21,75 +23,11 @@ const projectsShowcase: Project[] = [
     description:
       "Welltrack web app developed for a hackathon pitch, designed to help users seamlessly record daily entries, track habits, and monitor their mood.",
     tags: ["Welltrack", "AI", "Web Development"],
-    githubLink: "https://github.com/qwertuhh/welltrack",
+    sourceCodeLink: "https://github.com/qwertuhh/welltrack",
   },
 ];
 
-function ProjectsFeatures(project: Project) {
-  const {
-    title,
-    imageSrc,
-    description,
-    type: projectType,
-    tags,
-    githubLink,
-  } = project;
-  return (
-    <div className="min-w-full px-4 py-6">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <h2 className="funnel-display-bold text-2xl font-bold text-white">
-          {title}
-        </h2>
-        <div className="w-auto h-48 rounded-lg overflow-hidden">
-          {projectType === "IMAGE" ? (
-            <img
-              alt="Project Thumbnail"
-              src={imageSrc}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          ) : (
-            <video
-              controls
-              className="w-full h-full object-cover"
-              preload="auto"
-            >
-              <source src={imageSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          )}
-        </div>
-        <div className="flex flex-col gap-3 items-start justify-start">
-          <p className="bricolage-grotesque-regular text-white/80 max-w-md text-left">
-            {description}
-          </p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {tags.map((tag, idx) => {
-              return (
-                <span
-                  key={idx}
-                  className="cascadia-code-bold px-3 py-1 bg-white/30 rounded-[10px] text-sm text-white"
-                >
-                  {tag}
-                </span>
-              );
-            })}
-          </div>
-        {githubLink && (
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-row items-center text-white cascadia-code-regular underline"
-          >
-            View code <SquareArrowOutUpRight className="w-4 h-4 mx-2"/>
-          </a>
-        )}
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 function Projects() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -162,7 +100,7 @@ function Projects() {
                 {projectsShowcase.map((project, idx) => {
                   return (
                     <div key={idx} className="min-w-full snap-center">
-                      <ProjectsFeatures {...project} />
+                      <ProjectCard {...project} />
                     </div>
                   );
                 })}
@@ -171,7 +109,7 @@ function Projects() {
           </LiquidGlass>
 
           {/* Project indicator */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom--4 left-1/2 -translate-x-1/2 flex gap-2 my-2">
             {projectsShowcase.map((_, idx) => (
               <div
                 key={idx}

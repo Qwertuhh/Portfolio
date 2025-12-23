@@ -15,7 +15,7 @@ export default function Tooltip({
 
   return (
     <div
-      className="relative inline-flex"
+      className={clsx("relative inline-flex", className)}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
@@ -34,7 +34,6 @@ export default function Tooltip({
               damping: 22,
             }}
             className={clsx(
-              className,
               `
               pointer-events-none
               absolute -top-10 left-1/2 -translate-x-1/2
@@ -45,7 +44,7 @@ export default function Tooltip({
               bg-(--neutral-900) px-3 py-1 my-4 text-white
               shadow-lg backdrop-blur
               bricolage-grotesque-regular
-            `
+              `
             )}
           >
             {label}

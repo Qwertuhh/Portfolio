@@ -6,7 +6,8 @@ interface Project {
   type: ProjectThumbnailType;
   description: string;
   tags: string[];
-  githubLink: string;
+  sourceCodeLink: string;
+  previewLink?: string;
 }
 
 interface SocialLink {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Doto:wght,ROND@100..900,100&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:wght@100..800&family=League+Script&family=Rouge+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Doto:wght,ROND@100..900,100&family=Funnel+Display:wght@300..800&family=JetBrains+Mono:wght@100..800&family=League+Script&family=Rouge+Script&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -337,6 +337,15 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
+
+  /* Hover flip animation styles */
+  .hover-flip-container {
+    transform-style: preserve-3d;
+  }
+
+  .hover-flip-face {
+    backface-visibility: hidden;
+  }
 }
 
 /* * Tailwind Classes */
@@ -346,5 +355,5 @@
 }
 
 .main-border-type {
-  @apply w-16 rounded-[50px] p-1 border-2 border-solid border-black 
+  @apply w-16 rounded-[50px] p-1 border-2 border-solid border-black;
 }
