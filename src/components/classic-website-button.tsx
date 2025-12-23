@@ -10,7 +10,7 @@ function ClassicWebsiteButton() {
       <Tooltip label="This is my old portfolio website" className="">
         <button
           onClick={handleClassicWebsiteClick}
-          className="league-script-regular z-45 text-4xl mx-6 my-4 text-white"
+          className="league-script-regular z-45 text-4xl mx-6 my-4 text-white cursor-pointer"
         >
           visit my <span className="rouge-script-regular">Classic</span> Website
         </button>

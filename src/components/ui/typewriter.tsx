@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { motion } from "motion/react";
 import React, { useState, useEffect } from "react";
 
@@ -7,6 +8,7 @@ type TypewriterProps = {
   overwrite?: boolean;
   loop?: boolean;
   pause?: number;
+  textClassName?: string;
 };
 
 type TextChildProps = {
@@ -20,6 +22,7 @@ function Typewriter({
   overwrite = false,
   loop = false,
   pause = 2000,
+  textClassName,
 }: TypewriterProps) {
   const [currentChildIndex, setCurrentChildIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -104,7 +107,7 @@ function Typewriter({
 
   return React.cloneElement(
     currentChild,
-    {},
+    currentChild.props,
     displayText.split("").map((char: string, index: number) => {
       return (
         <motion.span
@@ -114,7 +117,8 @@ function Typewriter({
           transition={{
             delay: isDeleting ? 0 : index * speed,
           }}
-          style={{ whiteSpace: "pre" }}
+          className={clsx("inline-block", textClassName)}
+          style={{ whiteSpace: char === " " ? "pre" : "normal" }}
         >
           {char}
         </motion.span>

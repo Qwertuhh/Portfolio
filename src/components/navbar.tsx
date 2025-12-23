@@ -18,7 +18,7 @@ function Navbar() {
 
   const handleGitHubClick = () => {
     console.log("Opening GitHub");
-    window.open("https://github.com/qwertuhh", "_blank");
+    window.open("https://github.com/qwertuhh/portfolio", "_blank");
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
@@ -69,9 +69,9 @@ function Navbar() {
           aria-label="Toggle mobile menu"
         >
           {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6 cursor-pointer" />
           ) : (
-            <Menu className="w-6 h-6" />
+            <Menu className="w-6 h-6 cursor-pointer" />
           )}
         </button>
       </div>
@@ -103,7 +103,6 @@ function Navbar() {
                 title="View GitHub"
               >
                 <Code className="w-6 h-6" />
-                GitHub
               </button>
             </li>
           </ul>

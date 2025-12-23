@@ -28,15 +28,17 @@ function HeroComponent() {
           </Tooltip>
         </div>
         <div className="flex flex-col">
-          <Typewriter speed={0.06}>
-            <h1 className="text-6xl sm:text-2xl funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent">
+          <Typewriter speed={0.06} textClassName="text-6xl sm:text-2xl">
+            <h1 className="funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent wrap-break-word">
               I'm Arihant Jain
             </h1>
           </Typewriter>
-          <p className="rouge-script-regular text-3xl w-fit ml-auto">
+          <p className="rouge-script-regular text-2xl sm:text-xl w-fit ml-auto">
             a developer
           </p>
-          <p className="muted funnel-display-regular">AKA Qwertuhh</p>
+          <p className="muted funnel-display-regular text-lg sm:text-base">
+            AKA Qwertuhh
+          </p>
         </div>
         <div className="flex flex-col gap-4 my-12 text-justify">
           <p className="bricolage-grotesque-regular text-xl text-justify">
