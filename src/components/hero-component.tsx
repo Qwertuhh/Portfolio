@@ -29,7 +29,7 @@ function HeroComponent() {
         </div>
         <div className="flex flex-col">
           <Typewriter speed={0.06}>
-            <h1 className="text-6xl funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent">
+            <h1 className="text-6xl sm:text-2xl funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent">
               I'm Arihant Jain
             </h1>
           </Typewriter>
