@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import gsap from "gsap";
 
 type Direction = "left" | "top" | "right" | "bottom";
 
@@ -16,7 +16,10 @@ function HoverTextInSlide({
   direction = "left",
   className = "",
 }: HoverFlipTextProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const originalRef = useRef<HTMLDivElement>(null);
+  const flippedRef = useRef<HTMLDivElement>(null);
+  const charRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   // Split text into characters for animation
   const chars = text.split("");
@@ -25,81 +28,129 @@ function HoverTextInSlide({
   const getDirectionAnimation = (dir: Direction) => {
     switch (dir) {
       case "left":
-        return {
-          initial: { opacity: 0, x: -20, scale: 0.8 },
-          animate: { opacity: 1, x: 0, scale: 1 },
-        };
+        return { x: -20, scale: 0.8 };
       case "top":
-        return {
-          initial: { opacity: 0, y: -20, scale: 0.8 },
-          animate: { opacity: 1, y: 0, scale: 1 },
-        };
+        return { y: -20, scale: 0.8 };
       case "right":
-        return {
-          initial: { opacity: 0, x: 20, scale: 0.8 },
-          animate: { opacity: 1, x: 0, scale: 1 },
-        };
+        return { x: 20, scale: 0.8 };
       case "bottom":
-        return {
-          initial: { opacity: 0, y: 20, scale: 0.8 },
-          animate: { opacity: 1, y: 0, scale: 1 },
-        };
+        return { y: 20, scale: 0.8 };
       default:
-        return {
-          initial: { opacity: 0, y: 20, scale: 0.8 },
-          animate: { opacity: 1, y: 0, scale: 1 },
-        };
+        return { y: 20, scale: 0.8 };
     }
   };
 
   const animationProps = getDirectionAnimation(direction);
 
+  const handleMouseEnter = () => {
+    if (!originalRef.current || !flippedRef.current) return;
+
+    // Kill any existing animations
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+    }
+
+    // Create new timeline
+    const tl = gsap.timeline();
+    timelineRef.current = tl;
+
+    // Animate original content out
+    tl.to(originalRef.current, {
+      rotateX: -90,
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.inOut",
+    })
+      // Set flipped content initial state
+      .set(flippedRef.current, { rotateX: 90, opacity: 0 })
+      // Animate flipped content in
+      .to(flippedRef.current, {
+        rotateX: 0,
+        opacity: 1,
+        duration: 0.2,
+        ease: "power2.inOut",
+      })
+      // Animate characters with stagger
+      .fromTo(
+        charRefs.current,
+        {
+          opacity: 0,
+          ...animationProps,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+        },
+        "-=0.1"
+      );
+  };
+
+  const handleMouseLeave = () => {
+    if (!originalRef.current || !flippedRef.current) return;
+
+    // Kill any existing animations
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+    }
+
+    // Create new timeline
+    const tl = gsap.timeline();
+    timelineRef.current = tl;
+
+    // Animate flipped content out
+    tl.to(flippedRef.current, {
+      rotateX: -90,
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.inOut",
+    })
+      // Animate original content back in
+      .to(originalRef.current, {
+        rotateX: 0,
+        opacity: 1,
+        duration: 0.2,
+        ease: "power2.inOut",
+      });
+  };
+
   return (
     <div
       className={`relative inline-block cursor-pointer hover-flip-container ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <AnimatePresence mode="wait">
-        {!isHovered ? (
-          <motion.div
-            key="original"
-            initial={{ rotateX: 0, opacity: 1 }}
-            exit={{ rotateX: -90, opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="w-full h-full hover-flip-face"
-          >
-            {children}
-          </motion.div>
-        ) : (
-          <motion.div
-            key="flipped"
-            initial={{ rotateX: 90, opacity: 0 }}
-            animate={{ rotateX: 0, opacity: 1 }}
-            exit={{ rotateX: -90, opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="w-full h-full flex items-center justify-center hover-flip-face"
-          >
-            <span className="text-inherit font-inherit inline-flex">
-              {chars.map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={animationProps.initial}
-                  animate={animationProps.animate}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.05,
-                    ease: [0.68, -0.55, 0.265, 1.55], // Bounce easing
-                  }}
-                  className="inline-block"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
+      {/* Original content */}
+      <div
+        ref={originalRef}
+        className="w-full h-full hover-flip-face preserve-3d backface-hidden"
+      >
+        {children}
+      </div>
+
+      {/* Flipped content */}
+      <div
+        ref={flippedRef}
+        className="absolute inset-0 w-full h-full flex items-center justify-center hover-flip-face opacity-0 preserve-3d backface-hidden"
+      >
+        <span className="text-inherit font-inherit inline-flex">
+          {chars.map((char, index) => (
+            <span
+              key={index}
+              ref={(el) => {
+                charRefs.current[index] = el;
+              }}
+              className="inline-block char-initial"
+            >
+              {char === " " ? "\u00A0" : char}
             </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          ))}
+        </span>
+      </div>
     </div>
   );
 }
