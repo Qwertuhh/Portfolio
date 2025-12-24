@@ -64,8 +64,8 @@ function SocialLinks() {
         {socialLinks.map((socialLink) => {
           const { name, url, icon } = socialLink;
           return (
-            <Tooltip label={name} className="">
-              <a key={name} href={url} target="_blank" rel="noreferrer">
+            <Tooltip label={name} key={name}>
+              <a href={url} target="_blank" rel="noreferrer">
                 {icon}
               </a>
             </Tooltip>
