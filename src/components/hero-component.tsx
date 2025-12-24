@@ -3,11 +3,12 @@ import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import clsx from "clsx";
 import Tooltip from "@/components/ui/tool-tip";
 import { SocialLinks } from "@/components/social-links";
+import HoverScrambleText from "./ui/hover-scramble-text";
 
 const profileIcons = "main-border-type cursor-pointer";
 function HeroComponent() {
   return (
-    <main className="flex flex-col justify-center items-center h-full">
+    <main className="flex flex-col justify-center items-center h-screen">
       <div className="w-(--main-width) p-2">
         <DottedGlowBackground className="opacity-8" />
         <div className="flex flex-row gap-1 items-left">
@@ -41,11 +42,13 @@ function HeroComponent() {
           </p>
         </div>
         <div className="flex flex-col gap-4 my-12 text-justify">
-          <p className="bricolage-grotesque-regular text-xl text-justify">
-            An enthusiastic learner who is greatly interested in programming and
-            Applied Artificial Intelligence. With a strong programming
-            background.
-          </p>
+          <HoverScrambleText text="test">
+            <p className="bricolage-grotesque-regular text-xl text-justify">
+              An enthusiastic learner who is greatly interested in programming
+              and Applied Artificial Intelligence. With a strong programming
+              background.
+            </p>
+          </HoverScrambleText>
         </div>
         <SocialLinks />
       </div>

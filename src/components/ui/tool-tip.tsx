@@ -39,7 +39,7 @@ export default function Tooltip({
               absolute -top-10 left-1/2 -translate-x-1/2
               origin-center
               text-xm
-              whitespace-normal max-w-xs
+              whitespace-normal max-w-xs sm:min-w-2xs
               rounded-lg
               doto-bold
               bg-(--neutral-900) px-3 py-1 my-4 text-white

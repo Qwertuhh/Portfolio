@@ -8,10 +8,10 @@ function AboutMe() {
   return (
     <div
       id="about-me"
-      className="bg-linear-to-b from-(--bg-primary) to-(--bg-secondary)"
+      className="bg-linear-to-b from-(--bg-primary) to-(--bg-secondary) min-h-screen"
     >
-      <div className="main-div max-w-4xl mx-auto h-screen w-(--main-width)">
-        <div className="main-div ">
+      <div className="main-div max-w-4xl mx-auto py-8 px-4 w-(--main-width)">
+        <div className="main-div">
           <p className="bricolage-grotesque-regular text-xl my-4 text-justify">
             I love solving problems. Programming feels like my superpower. I
             chose this path because it gives meaning to my life. I can&apos;t
