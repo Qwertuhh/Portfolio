@@ -6,10 +6,12 @@ export default function Tooltip({
   label,
   children,
   className,
+  textClassName,
 }: {
   label: string;
   children: React.ReactNode;
   className?: string;
+  textClassName?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -39,7 +41,7 @@ export default function Tooltip({
               absolute -top-10 left-1/2 -translate-x-1/2
               origin-center
               text-xm
-              whitespace-normal max-w-xs sm:min-w-2xs
+              whitespace-normal max-w-xs  sm:min-w-8
               rounded-lg
               doto-bold
               bg-(--neutral-900) px-3 py-1 my-4 text-white
@@ -47,7 +49,8 @@ export default function Tooltip({
               bricolage-grotesque-regular
               wrap-break-word
               z-90
-              `
+              `,
+              textClassName
             )}
           >
             {label}

@@ -54,9 +54,8 @@ function HoverScrambleText({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
-      <div ref={textRef} className={`text-white ${textClassName}`}>
-        {originalText}
+      <div ref={textRef} className={`${textClassName}`}>
+        {children}
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ function HeroComponent() {
 
           <Tooltip label="Arihant Jain" className="text-xl">
             <img
-              src="./profile-image/arihant_jain.png"
+              src="./profile-image/arihant_jain.webp"
               alt="arihant"
               className={clsx(profileIcons)}
             />
