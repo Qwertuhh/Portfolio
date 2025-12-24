@@ -28,7 +28,7 @@ function HeroComponent() {
           </Tooltip>
         </div>
         <div className="flex flex-col">
-          <Typewriter speed={0.06} textClassName="text-6xl sm:text-2xl">
+          <Typewriter speed={0.06} textClassName="text-2xl sm:text-6xl">
             <h1 className="funnel-display-regular backdrop-blur-lg border-0 border-solid border-transparent wrap-break-word">
               I'm Arihant Jain
             </h1>

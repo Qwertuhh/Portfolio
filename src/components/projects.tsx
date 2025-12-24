@@ -87,7 +87,7 @@ function Projects() {
 
   return (
     <div id="projects">
-      <ImageBg imageSrc="./black-forest.webp">
+      <ImageBg imageSrc="./black-forest.svg">
         <div className="main-div h-screen">
           <div className="relative">
             <LiquidGlass className="w-(--main-width) mx-auto rounded-4xl">

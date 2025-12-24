@@ -6,7 +6,7 @@ import Projects from "@/components/projects";
 
 function App(): JSX.Element {
   return (
-    <div className="flex flex-col gap-22 h-[calc(100vh-var(--navbar-height))]">
+    <div>
       <Navbar />
       <HeroComponent />
       <AboutMe />
