@@ -1,64 +1,123 @@
-"use client";
 import { useRef } from "react";
 import gsap from "gsap";
-import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-gsap.registerPlugin(ScrambleTextPlugin);
+const CHARS = "AK▙▚▞▝▀▖▜▛▟ioz";
 
-const scrambleChars =
-  "▙ ▚ ▞ a k i e d z e k ▝ ▀ ▖ ▜ ▛ ▟ ▙ ▚ ▞ ▝ ▀ ▖ a k i e d z e k";
-
-function HoverScrambleText({
-  children,
-  text,
-  textClassName = "",
-}: {
-  children: React.ReactNode;
+type Props = {
   text: string;
-  textClassName?: string;
-}) {
-  const textRef = useRef(null);
-  const originalText = text || "";
+  children: React.ReactNode;
+  className?: string;
+};
 
-  const handleMouseEnter = () => {
-    if (!textRef.current) return;
+function HoverScrambleSwap({
+  text,
+  children,
+  className = "",
+}: Props) {
+  const childrenRef = useRef<HTMLSpanElement | null>(null);
+  const scrambleRef = useRef<HTMLSpanElement | null>(null);
 
-    gsap.to(textRef.current, {
-      duration: 0.5,
-      scrambleText: {
-        text: text || originalText,
-        chars: scrambleChars,
-        revealDelay: 0.1,
-        speed: 0.1,
-      },
+  let frameId: number | null = null;
+
+  const scrambleIn = () => {
+    if (!childrenRef.current || !scrambleRef.current) return;
+
+    gsap.killTweensOf(childrenRef.current);
+    gsap.killTweensOf(scrambleRef.current);
+
+    // Animate children out
+    gsap.to(childrenRef.current, {
+      opacity: 0,
+      y: -6,
+      duration: 0.2,
+      ease: "power2.out",
     });
+
+    // Animate scramble text in
+    gsap.fromTo(
+      scrambleRef.current,
+      { opacity: 0, y: 6 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.2,
+        ease: "power2.out",
+      }
+    );
+
+    let progress = 0;
+    const length = text.length;
+
+    // 🔥 Dynamic speed: long text scrambles faster
+    const REVEAL_PER_FRAME = Math.max(1, Math.ceil(length / 12));
+
+    if (frameId) cancelAnimationFrame(frameId);
+
+    const animate = () => {
+      if (!scrambleRef.current) return;
+
+      progress += REVEAL_PER_FRAME;
+
+      scrambleRef.current.textContent = text
+        .split("")
+        .map((char, i) =>
+          i < progress ? char : CHARS[Math.floor(Math.random() * CHARS.length)]
+        )
+        .join("");
+
+      if (progress < length) {
+        frameId = requestAnimationFrame(animate);
+      } else {
+        scrambleRef.current.textContent = text;
+      }
+    };
+
+    animate();
   };
 
-  const handleMouseLeave = () => {
-    if (!textRef.current) return;
+  const scrambleOut = () => {
+    if (!childrenRef.current || !scrambleRef.current) return;
 
-    gsap.to(textRef.current, {
-      duration: 0.3,
-      scrambleText: {
-        text: originalText,
-        chars: scrambleChars,
-        revealDelay: 0,
-        speed: 0.2,
-      },
+    if (frameId) cancelAnimationFrame(frameId);
+
+    // Animate scramble out
+    gsap.to(scrambleRef.current, {
+      opacity: 0,
+      y: 6,
+      duration: 0.18,
+      ease: "power2.in",
+    });
+
+    // Animate children back in
+    gsap.to(childrenRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.22,
+      delay: 0.05,
+      ease: "power2.out",
     });
   };
 
   return (
-    <div
-      className="inline-block"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <span
+      className={`relative inline-block cursor-pointer ${className}`}
+      onMouseEnter={scrambleIn}
+      onMouseLeave={scrambleOut}
     >
-      <div ref={textRef} className={`${textClassName}`}>
+      {/* Original content */}
+      <span ref={childrenRef} className="inline-block">
         {children}
-      </div>
-    </div>
+      </span>
+
+      {/* Scramble text */}
+      <span
+        ref={scrambleRef}
+        className="absolute left-0 top-0 inline-block pointer-events-none opacity-0"
+      >
+        {text}
+      </span>
+    </span>
   );
 }
 
-export default HoverScrambleText;
+export default HoverScrambleSwap;

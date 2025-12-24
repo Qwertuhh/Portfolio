@@ -42,12 +42,16 @@ function HeroComponent() {
           </p>
         </div>
         <div className="flex flex-col gap-4 my-12 text-justify">
-          <HoverScrambleText text="test">
+          <HoverScrambleText
+            text="Any sufficiently advanced technology is indistinguishable from magic"
+            className="bricolage-grotesque-regular text-xl text-justify"
+          >
             <p className="bricolage-grotesque-regular text-xl text-justify">
               An enthusiastic learner who is greatly interested in programming
               and Applied Artificial Intelligence. With a strong programming
               background.
             </p>
+            {/* </HoverScrambleText> */}
           </HoverScrambleText>
         </div>
         <SocialLinks />

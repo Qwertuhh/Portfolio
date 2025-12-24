@@ -2,6 +2,7 @@ import { Gift } from "lucide-react";
 import Tooltip from "@/components/ui/tool-tip";
 import Experience from "@/assets/experience.svg";
 import SkillSet from "@/components/skillset";
+import HoverScrambleSwap from "./ui/hover-scramble-text";
 
 function AboutMe() {
   const experienceYear = new Date().getFullYear() - 2022;
@@ -12,14 +13,19 @@ function AboutMe() {
     >
       <div className="main-div max-w-4xl mx-auto py-8 px-4 w-(--main-width)">
         <div className="main-div">
-          <p className="bricolage-grotesque-regular text-xl my-4 text-justify">
-            I love solving problems. Programming feels like my superpower. I
-            chose this path because it gives meaning to my life. I can&apos;t
-            solve everyone&apos;s problems, but I always try my best—and that
-            effort matters. Through my work, I find stability, purpose, and
-            happiness. When I solve problems for others, I feel connected to
-            them, and in that connection, I feel connected to life itself.
-          </p>
+          <HoverScrambleSwap
+            text="The satisfaction of solving a problem is the true reward of programming -__  Programs must be written for people to read, and only incidentally for machines to execute."
+            className="bricolage-grotesque-regular text-xl text-justify"
+          >
+            <p className="bricolage-grotesque-regular text-xl my-4 text-justify">
+              I love solving problems. Programming feels like my superpower. I
+              chose this path because it gives meaning to my life. I can&apos;t
+              solve everyone&apos;s problems, but I always try my best—and that
+              effort matters. Through my work, I find stability, purpose, and
+              happiness. When I solve problems for others, I feel connected to
+              them, and in that connection, I feel connected to life itself.
+            </p>
+          </HoverScrambleSwap>
         </div>
         <SkillSet />
         <div className="flex fira-code-regular flex-row space-around w-full justify-between my-4">
