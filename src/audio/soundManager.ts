@@ -6,7 +6,7 @@ class SoundManager {
 
   constructor() {
     this.muted = false;
-    this.volume = 0.5;
+    this.volume = 1;
 
     Howler.volume(this.volume);
   }
@@ -44,6 +44,8 @@ class SoundManager {
       src,
       volume: options.volume ?? 1,
       preload: true,
+      html5: false, // Force Web Audio API for better performance and lower latency
+      pool: 5, // Allow multiple instances for rapid succession
       ...options,
     });
   }

@@ -14,7 +14,7 @@ function IconBadge({
     <Tooltip label={description}>
       <div
         className="flex flex-row gap-2 border-2 border-black rounded-[10px] px-2 py-1 m-1"
-        onMouseEnter={useSFX("hover", name)}
+        onMouseEnter={useSFX("hover", name.toLocaleLowerCase())}
       >
         <img alt={name} src={icon} className="w-6 h-6" />
         <p className="cascadia-code-bold text-xm">{name}</p>

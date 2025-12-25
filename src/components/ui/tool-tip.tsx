@@ -7,11 +7,13 @@ export default function Tooltip({
   children,
   className,
   textClassName,
+  ...props
 }: {
   label: string;
   children: React.ReactNode;
   className?: string;
   textClassName?: string;
+  props?: unknown;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -20,6 +22,7 @@ export default function Tooltip({
       className={clsx("relative inline-flex", className)}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      {...props}
     >
       {children}
 

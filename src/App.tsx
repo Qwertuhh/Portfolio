@@ -3,6 +3,7 @@ import { lazy, Suspense, useState } from "react";
 
 import LazyLoader from "@/components/ui/loader";
 import InteractionOverlay from "@/components/interaction-overlay";
+import useScrollSFX from "./hooks/useScrollSFX";
 const HeroComponent = lazy(() => import("@/components/hero-component"));
 const Navbar = lazy(() => import("@/components/navbar"));
 const AboutMe = lazy(() => import("@/components/about-me"));
@@ -14,6 +15,7 @@ function App(): JSX.Element {
   const handleInteraction = () => {
     setHasInteracted(true);
   };
+  useScrollSFX();
 
   return (
     <div>
@@ -21,32 +23,16 @@ function App(): JSX.Element {
 
       {hasInteracted && (
         <>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <Navbar />
           </Suspense>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <HeroComponent />
           </Suspense>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <AboutMe />
           </Suspense>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <Projects />
           </Suspense>
         </>

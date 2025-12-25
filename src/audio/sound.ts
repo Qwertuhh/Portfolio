@@ -8,12 +8,18 @@ const sounds = {
   hover: soundManager.createSound(
     ["/sfx/soft-typewriter-click.ogg", "/sfx/soft-typewriter-click.mp3"],
     {
-      volume: 0.15,
+      volume: 0.5,
+    }
+  ),
+  hover2: soundManager.createSound(
+    ["/sfx/hovering.ogg", "/sfx/hovering.mp3"],
+    {
+      volume: 1,
     }
   ),
 
   scroll: soundManager.createSound(["/sfx/scrolling.ogg"], {
-    volume: 0.1,
+    volume: 0.25,
   }),
 };
 
