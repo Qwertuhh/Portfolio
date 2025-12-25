@@ -1,35 +1,25 @@
-import type { ReactNode } from "react";
+type ProjectThumbnailType = "IMAGE" | "VIDEO";
 
-// Interface for a single open window object
-interface OpenWindow {
-  id: string;
+interface Project {
   title: string;
-  icon: ReactNode;
-  content: ReactNode;
-  x: number;
-  y: number;
-  zIndex: number;
+  imageSrc: string;
+  type: ProjectThumbnailType;
+  description: string;
+  tags: string[];
+  sourceCodeLink: string;
+  previewLink?: string;
 }
 
-// Interface for DesktopIcon component props
-interface DesktopIconProps {
-  icon: ReactNode;
-  label: string;
-  onClick: () => void;
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: React.ReactNode;
 }
 
-// Interface for Window component props
-interface WindowProps {
-  id: string;
-  title: string;
-  icon: ReactNode;
-  children: ReactNode;
-  onClose: (id: string) => void;
-  initialX: number;
-  initialY: number;
-  zIndex: number;
-  isActive: boolean;
-  onFocus: (id: string) => void;
+interface Skill {
+  icon?: string;
+  name: string;
+  description: string;
 }
 
-export type { OpenWindow, DesktopIconProps, WindowProps };
+export type { ProjectThumbnailType, Project, SocialLink, Skill };
