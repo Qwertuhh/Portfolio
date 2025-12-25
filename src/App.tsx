@@ -21,32 +21,16 @@ function App(): JSX.Element {
 
       {hasInteracted && (
         <>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <Navbar />
           </Suspense>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <HeroComponent />
           </Suspense>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <AboutMe />
           </Suspense>
-          <Suspense
-            fallback={
-              <LazyLoader />
-            }
-          >
+          <Suspense fallback={<LazyLoader />}>
             <Projects />
           </Suspense>
         </>

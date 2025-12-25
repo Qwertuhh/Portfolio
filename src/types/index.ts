@@ -1,3 +1,5 @@
+import { type ReactNode } from "react";
+
 type ProjectThumbnailType = "IMAGE" | "VIDEO";
 
 interface Project {
@@ -22,4 +24,24 @@ interface Skill {
   description: string;
 }
 
-export type { ProjectThumbnailType, Project, SocialLink, Skill };
+// * Audio Types
+
+interface AudioContextType {
+  muted: boolean;
+  volume: number;
+  toggleMute: () => void;
+  changeVolume: (value: number) => void;
+}
+
+interface AudioProviderProps {
+  children: ReactNode;
+}
+
+export type {
+  ProjectThumbnailType,
+  Project,
+  SocialLink,
+  Skill,
+  AudioContextType,
+  AudioProviderProps,
+};

@@ -11,7 +11,9 @@
 import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
-import c from "ansi-colors";
+import colors from "ansi-colors";
+
+const c = colors;
 
 // * ===== CONFIGURATION =====
 /** Input directory containing raw audio files */
@@ -19,7 +21,7 @@ const INPUT_DIR = path.resolve("../raw/audio");
 /** Output directory for converted OGG files */
 const OUTPUT_DIR = path.resolve("../public/sfx");
 /** Target audio format for conversion */
-const TARGET_FORMAT = "ogg";
+const TARGET_FORMAT = "mp3";
 /** Supported audio file extensions */
 const AUDIO_EXTENSIONS = new Set([
   ".wav",
