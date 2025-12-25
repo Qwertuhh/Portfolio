@@ -77,4 +77,4 @@ function SocialLinks() {
   );
 }
 
-export { SocialLinks };
+export default SocialLinks;

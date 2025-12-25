@@ -3,7 +3,7 @@ import Tooltip from "@/components/ui/tool-tip";
 
 function ClassicWebsiteButton() {
   const handleClassicWebsiteClick = useWebsiteRouter(
-    "https://qwertuhh-portfolio.netlify.app/"
+    "https://qwertuhh-classic.netlify.app/"
   );
   return (
     <div className="flex justify-center">
