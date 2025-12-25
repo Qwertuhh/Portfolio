@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+import { useEffect, useRef, useState } from "react";
 
 type DottedGlowBackgroundProps = {
   className?: string;
@@ -203,12 +204,9 @@ export const DottedGlowBackground = ({
 
     regenDots();
 
-    let last = performance.now();
 
     const draw = (now: number) => {
       if (stopped) return;
-      const dt = (now - last) / 1000; // seconds
-      last = now;
       const { width, height } = container.getBoundingClientRect();
 
       ctx.clearRect(0, 0, el.width, el.height);
@@ -294,12 +292,11 @@ export const DottedGlowBackground = ({
   return (
     <div
       ref={containerRef}
-      className={className}
-      style={{ position: "absolute", inset: 0 }}
+      className={clsx("absolute inset-0",className)}
     >
       <canvas
         ref={canvasRef}
-        style={{ display: "block", width: "100%", height: "100%" }}
+        className="block w-full h-full"
       />
     </div>
   );
