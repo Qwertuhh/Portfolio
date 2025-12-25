@@ -3,7 +3,6 @@ import Tooltip from "@/components/ui/tool-tip";
 import Experience from "@/assets/experience.svg";
 import SkillSet from "@/components/skillset";
 import HoverScrambleSwap from "./ui/hover-scramble-text";
-import { sounds } from "@/audio";
 
 function AboutMe() {
   const experienceYear = new Date().getFullYear() - 2022;
@@ -50,15 +49,6 @@ function AboutMe() {
             </h2>
           </Tooltip>
         </div>
-        <button
-                onClick={() => {
-                  console.log("click");
-                  sounds.click.play();
-                }}
-                className="funnel-display-regular rounded-xl border-2 border-black p-2 mt-2 cursor-pointer"
-              >
-                Click me
-              </button>
       </div>
     </div>
   );

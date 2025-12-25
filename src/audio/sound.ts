@@ -1,6 +1,6 @@
 import { soundManager } from "./soundManager";
 
-export const sounds = {
+const sounds = {
   click: soundManager.createSound(["/sfx/click.ogg", "/sfx/click.mp3"], {
     volume: 0.25,
   }),
@@ -16,3 +16,8 @@ export const sounds = {
     volume: 0.1,
   }),
 };
+
+type SoundType = keyof typeof sounds;
+
+export { sounds };
+export type { SoundType };

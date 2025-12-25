@@ -6,6 +6,7 @@ import Tooltip from "@/components/ui/tool-tip";
 const SocialLinks = lazy(() => import("@/components/social-links"));
 import LazyLoader from "@/components/ui/loader";
 import HoverScrambleText from "@/components/ui/hover-scramble-text";
+import useSFX from "@/hooks/useSFX";
 
 const profileIcons = "main-border-type cursor-pointer";
 function HeroComponent() {
@@ -20,6 +21,7 @@ function HeroComponent() {
               src="./profile-image/qwertuhh.svg"
               alt="qwertuhh"
               className={clsx(profileIcons)}
+              onMouseEnter={useSFX("hover", "Qwertuhh")}
             />
           </Tooltip>
 
@@ -28,6 +30,7 @@ function HeroComponent() {
               src="./profile-image/arihant_jain.webp"
               alt="arihant"
               className={clsx(profileIcons)}
+              onMouseEnter={useSFX("hover", "Arihant Jain")}
             />
           </Tooltip>
         </div>
