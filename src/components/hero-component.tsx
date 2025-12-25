@@ -1,9 +1,11 @@
+import { lazy, Suspense } from "react";
+import clsx from "clsx";
 import { Typewriter } from "@/components/ui/typewriter";
 import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
-import clsx from "clsx";
 import Tooltip from "@/components/ui/tool-tip";
-import { SocialLinks } from "@/components/social-links";
-import HoverScrambleText from "./ui/hover-scramble-text";
+const SocialLinks = lazy(() => import("@/components/social-links"));
+import LazyLoader from "@/components/ui/loader";
+import HoverScrambleText from "@/components/ui/hover-scramble-text";
 
 const profileIcons = "main-border-type cursor-pointer";
 function HeroComponent() {
@@ -54,7 +56,9 @@ function HeroComponent() {
             {/* </HoverScrambleText> */}
           </HoverScrambleText>
         </div>
-        <SocialLinks />
+        <Suspense fallback={<LazyLoader />}>
+          <SocialLinks />
+        </Suspense>
       </div>
     </main>
   );
