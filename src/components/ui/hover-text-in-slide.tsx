@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import gsap from "gsap";
+import useSFX from "@/hooks/useSFX";
 
 type Direction = "left" | "top" | "right" | "bottom";
 
@@ -20,6 +21,7 @@ function HoverTextInSlide({
   const flippedRef = useRef<HTMLDivElement>(null);
   const charRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const typewriterClick = useSFX("typewriterClick", "slideText");
 
   // Split text into characters for animation
   const chars = text.split("");
@@ -83,7 +85,10 @@ function HoverTextInSlide({
           y: 0,
           scale: 1,
           duration: 0.3,
-          stagger: 0.05,
+          stagger: {
+            each: 0.05,
+            onStart: () => typewriterClick(), // Play sound for each character
+          },
           ease: "back.out(1.7)",
         },
         "-=0.1"

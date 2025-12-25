@@ -8,19 +8,22 @@ const sounds = {
   hover: soundManager.createSound(
     ["/sfx/soft-typewriter-click.ogg", "/sfx/soft-typewriter-click.mp3"],
     {
-      volume: 0.5,
+      volume: 0.25,
     }
   ),
-  hover2: soundManager.createSound(
-    ["/sfx/hovering.ogg", "/sfx/hovering.mp3"],
-    {
-      volume: 1,
-    }
-  ),
+  hover2: soundManager.createSound(["/sfx/hovering.ogg", "/sfx/hovering.mp3"], {
+    volume: 1,
+  }),
 
   scroll: soundManager.createSound(["/sfx/scrolling.ogg"], {
-    volume: 0.25,
+    volume: 0.15,
   }),
+  typewriterClick: soundManager.createSound(
+    ["/sfx/soft-typewriter-click.ogg", "/sfx/soft-typewriter-click.mp3"],
+    {
+      volume: 0.25,
+    }
+  ),
 };
 
 type SoundType = keyof typeof sounds;

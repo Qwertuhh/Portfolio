@@ -31,6 +31,14 @@ const useSFX = (type: SoundType, sfxLabel: string) => {
             sounds.scroll.play();
           }
           break;
+        
+        case "typewriterClick": 
+          {
+            console.log(`Typewriter on "${sfxLabel}"`);
+
+            sounds.typewriterClick.play();
+          }
+          break;
         default:
           console.warn(`Unknown sound type: ${type}`);
       }

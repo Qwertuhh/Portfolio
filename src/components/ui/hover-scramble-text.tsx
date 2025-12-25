@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import gsap from "gsap";
+import useSFX from "@/hooks/useSFX";
 
 const CHARS = "AK▙▚▞▝▀▖▜▛▟ioz";
 
@@ -9,13 +10,10 @@ type Props = {
   className?: string;
 };
 
-function HoverScrambleSwap({
-  text,
-  children,
-  className = "",
-}: Props) {
+function HoverScrambleSwap({ text, children, className = "" }: Props) {
   const childrenRef = useRef<HTMLSpanElement | null>(null);
   const scrambleRef = useRef<HTMLSpanElement | null>(null);
+  const typewriterClick = useSFX("typewriterClick", "scramble");
 
   let frameId: number | null = null;
 
@@ -56,7 +54,13 @@ function HoverScrambleSwap({
     const animate = () => {
       if (!scrambleRef.current) return;
 
+      const previousProgress = progress;
       progress += REVEAL_PER_FRAME;
+
+      // Play sound for each newly revealed character
+      if (previousProgress < length && progress > previousProgress) {
+        typewriterClick();
+      }
 
       scrambleRef.current.textContent = text
         .split("")
