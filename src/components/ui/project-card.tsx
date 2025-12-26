@@ -2,6 +2,7 @@ import type { Project } from '@/types';
 import { Eye, Code } from 'lucide-react';
 import HoverTextInSlide from '@/components/ui/hover-text-in-slide';
 import useSFX from '@/hooks/useSFX';
+import { useWebsiteRouter } from '@/hooks';
 
 /**
  * CSS class name for hover text elements with consistent styling.
@@ -52,7 +53,6 @@ function ProjectCard(project: Project) {
         tags,
         sourceCodeLink,
     } = project;
-
     /**
      * Sound effect hooks for interactive elements
      * - hoverTag: Triggered when hovering over technology tags
@@ -61,17 +61,23 @@ function ProjectCard(project: Project) {
     const hoverTag = useSFX('hover3', 'tag');
     const hoverProject = useSFX('hover2', 'project-card');
 
+    /**
+     * Router handlers for links - called at top level to maintain hook order
+     */
+    const handleSourceCodeClick = useWebsiteRouter(sourceCodeLink || '');
+    const handlePreviewClick = useWebsiteRouter(previewLink || '');
+
     return (
         /**
          * Main container with hover sound effect and cursor pointer
          * Provides full-width layout with padding for the card content
          */
         <div
-            className="min-w-full px-6 py-8 cursor-pointer"
-            onMouseOver={hoverProject}
+        className="min-w-full px-6 py-8 cursor-pointer"
+        onMouseOver={hoverProject}
         >
-            /** * Content container with centered layout and vertical spacing *
-            Displays project information in a structured, readable format */
+          {/** * Content container with centered layout and vertical spacing *
+          Displays project information in a structured, readable format */}
             <div className="flex flex-col items-center text-center space-y-4">
                 {/* Project title with prominent styling */}
                 <h2 className="funnel-display-bold text-2xl font-bold text-white">
@@ -136,41 +142,41 @@ function ProjectCard(project: Project) {
                     {/* Action links container */}
                     <div className="flex flex-row gap-2">
                         {/* Source code link - conditionally rendered if URL exists */}
+
                         {sourceCodeLink && (
-                            <HoverTextInSlide
-                                text="Code"
-                                className={hoverTextInSlideClassName}
-                                direction="right"
-                            >
-                                <a
-                                    title="View source code"
-                                    href={sourceCodeLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex flex-row items-center text-white cascadia-code-regular underline"
+                            <div onClick={handleSourceCodeClick}>
+                                <HoverTextInSlide
+                                    text="Code"
+                                    className={hoverTextInSlideClassName}
+                                    direction="right"
                                 >
-                                    <Code className="w-4 h-4 mx-2" />
-                                </a>
-                            </HoverTextInSlide>
+                                    <button
+                                        title="View source code"
+                                        type="button"
+                                        className="flex flex-row items-center text-white cascadia-code-regular underline bg-transparent border-none cursor-pointer"
+                                    >
+                                        <Code className="w-4 h-4 mx-2" />
+                                    </button>
+                                </HoverTextInSlide>
+                            </div>
                         )}
 
                         {/* Live preview link - conditionally rendered if URL exists */}
                         {previewLink && (
-                            <HoverTextInSlide
-                                text="Preview"
-                                className={hoverTextInSlideClassName}
-                                direction="right"
-                            >
-                                <a
-                                    title="View project"
-                                    href={previewLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex flex-row items-center text-white cascadia-code-regular underline"
+                            <div onClick={handlePreviewClick}>
+                                <HoverTextInSlide
+                                    text="Preview"
+                                    className={hoverTextInSlideClassName}
+                                    direction="right"
                                 >
-                                    <Eye className="w-4 h-4 mx-2" />
-                                </a>
-                            </HoverTextInSlide>
+                                    <button
+                                        title="View project"
+                                        className="flex flex-row items-center text-white cascadia-code-regular underline bg-transparent border-none cursor-pointer"
+                                    >
+                                        <Eye className="w-4 h-4 mx-2" />
+                                    </button>
+                                </HoverTextInSlide>
+                            </div>
                         )}
                     </div>
                 </div>

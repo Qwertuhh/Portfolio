@@ -1,9 +1,13 @@
-const useWebsiteRouter = (url: string) => {
+const useWebsiteRouter = (
+  url: string,
+  target: string = "_blank",
+  features: string = "noopener noreferrer"
+) => {
   const handleClick = () => {
     window.addEventListener(
-      "focus",
+      "click",
       () => {
-        window.location.href = url;
+        window.open(url, target, features);
       },
       { once: true }
     );
