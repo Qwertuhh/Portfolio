@@ -80,10 +80,10 @@ function Navbar() {
               <button
                 onClick={handleGitHubClick}
                 onMouseEnter={hoverNavLinks}
-                className=" transition-colors cursor-pointer p-2 rounded"
+                className=" transition-colors cursor-pointer p-2 rounded hover:scale-120"
                 title="View GitHub"
               >
-                <Code className="w-6 h-6" />
+                <Code className="w-6 h-6"/>
               </button>
             </li>
           </ul>
