@@ -79,8 +79,8 @@ export default function InteractionOverlay({
               />
             </svg>
           </div>
-          <p className="font-mono text-sm text-gray-400">
-            This site requires your interaction to proceed
+          <p className="font-mono text-sm text-gray-500">
+            This site requires your interaction to proceed and enjoy the <span className="bold bg-neutral-400 text-neutral-50 rounded px-1">SFX</span>
           </p>
         </div>
       </div>
