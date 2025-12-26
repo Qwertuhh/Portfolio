@@ -16,6 +16,15 @@
         ]
       },
       {
+        "name": "Scripts",
+        "autoExecuteCommands": true,
+        "icon": "run-all",
+        "color": "terminal.ansiYellow",
+        "commands": [
+          "cd scripts; clear"
+        ]
+      },
+      {
         "name": "Dev",
         "autoExecuteCommands": true,
         "icon": "server",

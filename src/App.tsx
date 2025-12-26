@@ -1,27 +1,42 @@
 import type { JSX } from "react";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 
 import LazyLoader from "@/components/ui/loader";
+import InteractionOverlay from "@/components/interaction-overlay";
+import useScrollSFX from "./hooks/useScrollSFX";
 const HeroComponent = lazy(() => import("@/components/hero-component"));
 const Navbar = lazy(() => import("@/components/navbar"));
 const AboutMe = lazy(() => import("@/components/about-me"));
 const Projects = lazy(() => import("@/components/projects"));
 
 function App(): JSX.Element {
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleInteraction = () => {
+    setHasInteracted(true);
+  };
+  useScrollSFX();
+
   return (
     <div>
-      <Suspense fallback={<div><LazyLoader /></div>}>
-        <Navbar />
-      </Suspense>
-      <Suspense fallback={<div><LazyLoader /></div>}>
-        <HeroComponent />
-      </Suspense>
-      <Suspense fallback={<div><LazyLoader /></div>}>
-        <AboutMe />
-      </Suspense>
-      <Suspense fallback={<div><LazyLoader /></div>}>
-        <Projects />
-      </Suspense>
+      <InteractionOverlay onInteraction={handleInteraction} />
+
+      {hasInteracted && (
+        <>
+          <Suspense fallback={<LazyLoader />}>
+            <Navbar />
+          </Suspense>
+          <Suspense fallback={<LazyLoader />}>
+            <HeroComponent />
+          </Suspense>
+          <Suspense fallback={<LazyLoader />}>
+            <AboutMe />
+          </Suspense>
+          <Suspense fallback={<LazyLoader />}>
+            <Projects />
+          </Suspense>
+        </>
+      )}
     </div>
   );
 }

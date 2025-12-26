@@ -1,6 +1,7 @@
 import type { Project } from "@/types";
 import { Eye, Code } from "lucide-react";
 import HoverTextInSlide from "@/components/ui/hover-text-in-slide";
+import useSFX from "@/hooks/useSFX";
 
 const hoverTextInSlideClassName = "cascadia-code-bold text-white h-5 w-15 mr-2";
 function ProjectCard(project: Project) {
@@ -13,8 +14,14 @@ function ProjectCard(project: Project) {
     tags,
     sourceCodeLink,
   } = project;
+  const hoverTag = useSFX("hover3", "tag");
+  const hoverProject = useSFX("hover2", "project-card");
+
   return (
-    <div className="min-w-full px-6 py-8">
+    <div
+      className="min-w-full px-6 py-8 cursor-pointer"
+      onMouseOver={hoverProject}
+    >
       <div className="flex flex-col items-center text-center space-y-4">
         <h2 className="funnel-display-bold text-2xl font-bold text-white">
           {title}
@@ -47,6 +54,7 @@ function ProjectCard(project: Project) {
               return (
                 <span
                   key={idx}
+                  onMouseEnter={hoverTag}
                   className="cascadia-code-bold px-3 py-1 bg-white/30 rounded-[10px] text-sm text-white"
                 >
                   {tag}
@@ -56,7 +64,11 @@ function ProjectCard(project: Project) {
           </div>
           <div className="flex flex-row gap-2">
             {sourceCodeLink && (
-              <HoverTextInSlide text="Code" className={hoverTextInSlideClassName} direction="right">
+              <HoverTextInSlide
+                text="Code"
+                className={hoverTextInSlideClassName}
+                direction="right"
+              >
                 <a
                   title="View source code"
                   href={sourceCodeLink}
@@ -69,7 +81,11 @@ function ProjectCard(project: Project) {
               </HoverTextInSlide>
             )}
             {previewLink && (
-              <HoverTextInSlide text="Preview" className={hoverTextInSlideClassName} direction="right">
+              <HoverTextInSlide
+                text="Preview"
+                className={hoverTextInSlideClassName}
+                direction="right"
+              >
                 <a
                   title="View project"
                   href={previewLink}

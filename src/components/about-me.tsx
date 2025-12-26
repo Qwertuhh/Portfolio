@@ -3,8 +3,12 @@ import Tooltip from "@/components/ui/tool-tip";
 import Experience from "@/assets/experience.svg";
 import SkillSet from "@/components/skillset";
 import HoverScrambleSwap from "./ui/hover-scramble-text";
+import useSFX from "@/hooks/useSFX";
 
 function AboutMe() {
+  const hoverBirthday = useSFX("hover", "birthday");
+  const hoverExperience = useSFX("hover", "experience");
+
   const experienceYear = new Date().getFullYear() - 2022;
   return (
     <div
@@ -31,17 +35,22 @@ function AboutMe() {
         <div className="flex fira-code-regular flex-row space-around w-full justify-between my-4">
           <Tooltip
             label={`Birthday, ${new Date().getFullYear() - 2010} year's old`}
-            className=""
           >
-            <h2 className="flex flex-row gap-2 cursor-pointer">
+            <h2
+              className="flex flex-row gap-2 cursor-pointer"
+              onMouseEnter={hoverBirthday}
+            >
               <Gift className="w-6 h-6" />{" "}
               <span className="font-bold text-xm item-centerm">
                 1st January, 2010
               </span>
             </h2>
           </Tooltip>
-          <Tooltip label={`${experienceYear}+ Experiece`} className="">
-            <h2 className="flex flex-row gap-2 cursor-pointer">
+          <Tooltip label={`${experienceYear}+ Experiece`}>
+            <h2
+              className="flex flex-row gap-2 cursor-pointer"
+              onMouseEnter={hoverExperience}
+            >
               <img alt="experience svg" src={Experience} className="w-6 h-6" />
               <span className="font-bold text-xm item-center">
                 {experienceYear}+
