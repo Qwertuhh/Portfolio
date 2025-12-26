@@ -1,0 +1,9 @@
+/* * Tailwind Classes */
+
+.main-div {
+  @apply flex flex-col justify-center items-center;
+}
+
+.main-border-type {
+  @apply w-16 rounded-[50px] p-1 border-2 border-solid border-black;
+}
