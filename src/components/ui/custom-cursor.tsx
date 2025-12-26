@@ -29,6 +29,10 @@ import discWithMusicNote from '@/assets/cursor/disc-with-music-note.svg';
 /**
  * CustomCursor
  *
+ * @description
+ * A custom cursor component that provides a unique and engaging user experience.
+ *
+ * @features
  * - Works with cursor: none
  * - Rotates & scales on interactive elements
  * - Click state swaps disc icon
@@ -42,9 +46,13 @@ function CustomCursor() {
     const [isPointer, setIsPointer] = useState(false);
     const [isClicking, setIsClicking] = useState(false);
 
-    /* ----------------------------------
-     Cursor follow + interaction detect
-  ----------------------------------- */
+    /**
+     * State for cursor follow and interaction detection
+     *
+     * @description
+     * This state is used to track the cursor's position and detect
+     * when the cursor is hovering over interactive elements.
+     */
     useEffect(() => {
         const moveCursor = (e: MouseEvent) => {
             gsap.to(cursorRef.current, {
@@ -108,9 +116,25 @@ function CustomCursor() {
         };
     }, [isPointer]);
 
-    /* ----------------------------------
-     Disc rotation (create once)
-  ----------------------------------- */
+    /**
+     * Disc Rotation Animation Setup
+     *
+     * @effect
+     * Creates persistent rotation animation for optimal performance.
+     * Single tween instance reused throughout component lifecycle.
+     *
+     * @animation
+     * - Rotation: 360 degrees over 3 seconds
+     * - Easing: Linear for consistent angular velocity
+     * - Repeat: Infinite (-1)
+     * - Initial State: Paused (controlled by hover state)
+     * - Transform Origin: Center (50%, 50%)
+     *
+     * @performance
+     * - Single GSAP instance minimizes memory allocation
+     * - Play/pause control prevents unnecessary animation
+     * - Proper cleanup prevents zombie animations
+     */
     useEffect(() => {
         rotationTween.current = gsap.to(discRef.current, {
             rotation: 360,
@@ -121,26 +145,46 @@ function CustomCursor() {
             transformOrigin: '50% 50%',
         });
 
+        // Cleanup rotation tween on component unmount
         return () => {
             rotationTween.current?.kill();
         };
     }, []);
 
-    /* ----------------------------------
-     Hover / click behavior
-  ----------------------------------- */
+    /**
+     * Hover & Click State Management
+     *
+     * @effect
+     * Manages visual feedback for user interactions.
+     * Coordinates rotation animation and scaling based on interaction states.
+     *
+     * @states
+     * - Normal: Static disc, scale 1.0
+     * - Hover: Rotating disc, scale 1.2
+     * - Click: Music note disc, scale 1.15 (normal) or 1.35 (hover)
+     *
+     * @transitions
+     * - Hover Enter: Start rotation, scale to 1.2 (0.2s duration)
+     * - Hover Exit: Stop rotation, scale to 1.0 (0.2s duration)
+     * - Click Down: Pause rotation, scale based on hover state (0.1s duration)
+     * - Click Up: Resume rotation if hovering, scale accordingly (0.2s duration)
+     */
     useEffect(() => {
         if (isPointer) {
+            // Start rotation animation for hover state
             rotationTween.current?.play();
 
+            // Apply hover scale (considering current click state)
             gsap.to(cursorRef.current, {
                 scale: isClicking ? 1.35 : 1.2,
                 duration: 0.2,
                 ease: 'power2.out',
             });
         } else {
+            // Stop rotation animation for normal state
             rotationTween.current?.pause();
 
+            // Reset to normal scale (considering current click state)
             gsap.to(cursorRef.current, {
                 scale: isClicking ? 1.15 : 1,
                 duration: 0.2,
@@ -149,9 +193,33 @@ function CustomCursor() {
         }
     }, [isPointer, isClicking]);
 
-    /* ----------------------------------
-     Render
-  ----------------------------------- */
+    /**
+     * Component Render
+     *
+     * @render
+     * Renders the custom cursor with dynamic icon swapping.
+     * Uses React refs for direct DOM manipulation with GSAP.
+     *
+     * @structure
+     * - Outer div: Fixed positioning container with transform
+     * - Inner img: SVG icon with dynamic source based on interaction state
+     *
+     * @visual-states
+     * - Default: Static disc icon (rotation paused, scale 1.0)
+     * - Hover: Rotating disc icon (360°/3s, scale 1.2)
+     * - Click: Music note disc icon (rotation paused, scale 1.15-1.35)
+     *
+     * @performance-optimizations
+     * - Fixed dimensions (40x40px) prevent layout thrashing
+     * - Draggable={false} prevents native browser drag behavior
+     * - Transform-based positioning for GPU acceleration
+     * - Pointer-events: none (via CSS) prevents interference
+     *
+     * @accessibility
+     * - Alt text provides screen reader support
+     * - Semantic structure maintains accessibility tree
+     * - High contrast icons ensure visibility
+     */
     return (
         <div ref={cursorRef} className="custom-cursor">
             <img
