@@ -1,9 +1,9 @@
 services:
-  app:
+  web:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
+    container_name: portfolio
     ports:
-      - "4173:4173"
-    environment:
-      - NODE_ENV=production
+      - "3000:80"
+    restart: unless-stopped

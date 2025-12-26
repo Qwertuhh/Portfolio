@@ -1,20 +1,21 @@
-FROM oven/bun AS builder
+FROM oven/bun:1.1 AS builder
 
 WORKDIR /app
 
-COPY bun.lock package.json ./
-RUN bun install --frozen-lockfile
+COPY package.json ./
+RUN bun install --frozen-lockfile || bun install
 
 COPY . .
 RUN bun run build
 
-FROM oven/bun AS production
+FROM nginx:alpine
 
-WORKDIR /app
+RUN rm /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./package.json
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 4173
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-CMD ["bun", "run", "preview", "--", "--host"]
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
