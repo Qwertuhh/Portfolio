@@ -65,7 +65,7 @@ export default function InteractionOverlay({
 
       {/* Invisible overlay that captures clicks anywhere */}
       <div
-        className="absolute inset-0 cursor-pointer"
+        className="absolute inset-0"
         onClick={handleInteraction}
         aria-label="Click to enter portfolio"
       />

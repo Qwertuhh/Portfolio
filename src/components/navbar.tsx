@@ -1,3 +1,4 @@
+import useSFX from "@/hooks/useSFX";
 import { Code, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -22,6 +23,7 @@ function Navbar() {
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
+  const hoverNavLinks = useSFX('hover3', 'nav-links');;
   return (
     <nav className="flex flex-row justify-center items-center p-4 h-(--navbar-height) relative z-50">
       <div className="flex flex-row items-center justify-between gap-2 border-2 border-black rounded-full w-(--main-width) bg-white/90 backdrop-blur-sm">
@@ -37,6 +39,7 @@ function Navbar() {
             <li>
               <button
                 onClick={() => handleSmoothScroll("about-me")}
+                onMouseEnter={hoverNavLinks}
                 className=" transition-colors cursor-pointer p-2 rounded hover:underline"
               >
                 About me
@@ -45,6 +48,7 @@ function Navbar() {
             <li>
               <button
                 onClick={() => handleSmoothScroll("projects")}
+                onMouseEnter={hoverNavLinks}
                 className=" transition-colors cursor-pointer p-2 rounded hover:underline"
               >
                 Projects
@@ -53,6 +57,7 @@ function Navbar() {
             <li>
               <button
                 onClick={handleGitHubClick}
+                onMouseEnter={hoverNavLinks}
                 className=" transition-colors cursor-pointer p-2 rounded"
                 title="View GitHub"
               >

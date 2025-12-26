@@ -11,7 +11,7 @@ function IconBadge({
   description: string;
 }) {
   return (
-    <Tooltip label={description}>
+    <Tooltip label={description} className="cursor-pointer">
       <div
         className="flex flex-row gap-2 border-2 border-black rounded-[10px] px-2 py-1 m-1"
         onMouseEnter={useSFX("hover", name.toLocaleLowerCase())}
