@@ -37,7 +37,7 @@ function Navbar() {
             <li>
               <button
                 onClick={() => handleSmoothScroll("about-me")}
-                className=" transition-colors cursor-pointer p-2 rounded"
+                className=" transition-colors cursor-pointer p-2 rounded hover:underline"
               >
                 About me
               </button>
@@ -45,7 +45,7 @@ function Navbar() {
             <li>
               <button
                 onClick={() => handleSmoothScroll("projects")}
-                className=" transition-colors cursor-pointer p-2 rounded"
+                className=" transition-colors cursor-pointer p-2 rounded hover:underline"
               >
                 Projects
               </button>
