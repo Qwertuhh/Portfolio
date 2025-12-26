@@ -6,7 +6,7 @@ class SoundManager {
 
   constructor() {
     this.muted = false;
-    this.volume = 1;
+    this.volume = 0.5;
 
     Howler.volume(this.volume);
   }

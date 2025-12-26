@@ -21,7 +21,7 @@ const INPUT_DIR = path.resolve("../raw/audio");
 /** Output directory for converted OGG files */
 const OUTPUT_DIR = path.resolve("../public/sfx");
 /** Target audio format for conversion */
-const TARGET_FORMAT = "mp3";
+const TARGET_FORMAT = "ogg";
 /** Supported audio file extensions */
 const AUDIO_EXTENSIONS = new Set([
   ".wav",

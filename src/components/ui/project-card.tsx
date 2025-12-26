@@ -14,7 +14,7 @@ function ProjectCard(project: Project) {
     tags,
     sourceCodeLink,
   } = project;
-  const hoverTag = useSFX("hover", "tag");
+  const hoverTag = useSFX("hover3", "tag");
   const hoverProject = useSFX("hover2", "project-card");
 
   return (
