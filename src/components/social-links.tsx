@@ -42,26 +42,26 @@ const socialLinks: SocialLink[] = [
   },
   {
     name: "X",
-    url: "https://twitter.com/your_x_handle", // Replace with your actual X handle
+    url: "https://twitter.com/qwertuhh132407", // Replace with your actual X handle
     icon: <img src={XIcon} alt="X Icon" className={socialIconClass} />,
   },
   {
     name: "Discord",
-    url: "https://discordapp.com/users/yourdiscordid", // Replace with your actual Discord ID or server invite
+    url: "https://discordapp.com/users/qwertuhh.dev", // Replace with your actual Discord ID or server invite
     icon: (
       <img src={DiscordIcon} alt="Discord Icon" className={socialIconClass} />
     ),
   },
   {
     name: "Medium",
-    url: "https://medium.com/@yourmediumhandle", // Replace with your actual Medium URL
+    url: "https://medium.com/@arihantjain132407", // Replace with your actual Medium URL
     icon: (
       <img src={MediumIcon} alt="Medium Icon" className={socialIconClass} />
     ),
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/yourlinkedinprofile", // Replace with your actual LinkedIn profile
+    url: "https://linkedin.com/in/arihantjain-qwertuhh", // Replace with your actual LinkedIn profile
     icon: (
       <img src={LinkedinIcon} alt="Linkedin Icon" className={socialIconClass} />
     ),
