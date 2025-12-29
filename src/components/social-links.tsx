@@ -20,13 +20,15 @@
  * SOFTWARE.
  */
 
-import DiscordIcon from '@/assets/discord.svg';
-import GithubIcon from '@/assets/github.svg';
-import LinkedinIcon from '@/assets/linkedin.svg';
-import MailIcon from '@/assets/mail.svg';
-import MediumIcon from '@/assets/medium.svg';
-import NpmIcon from '@/assets/npm.svg';
-import XIcon from '@/assets/x.svg';
+import {
+    DiscordIcon,
+    GithubIcon,
+    LinkedinIcon,
+    MailIcon,
+    MediumIcon,
+    NPMIcon,
+    XIcon,
+} from '@/images';
 import type { SocialLink } from '@/types';
 import Tooltip from '@/components/ui/tool-tip';
 import useSFX from '@/hooks/useSFX';
@@ -87,7 +89,7 @@ const socialLinks: SocialLink[] = [
         url: 'https://npmjs.com/~qwertuhh', // Replace with your actual LinkedIn profile
         icon: (
             <img
-                src={NpmIcon}
+                src={NPMIcon}
                 alt="Linkedin Icon"
                 className={socialIconClass}
             />
