@@ -37,6 +37,11 @@ import PrismaIcon from "@/assets/prisma.svg";
 import NextIcon from "@/assets/nextjs.svg";
 import NetlifyIcon from "@/assets/netlify.svg";
 import DocusaurusIcon from "@/assets/docusaurus.svg";
+import DockerIcon from "@/assets/docker.svg";
+import GrafanaIcon from "@/assets/grafana.svg";
+import LokiIcon from "@/assets/grafana-loki.svg";
+import TempoIcon from "@/assets/grafana-tempo.svg";
+import PrometheusIcon from "@/assets/prometheus.svg";
 
 import IconBadge from "@/components/ui/icon-badge";
 
@@ -56,6 +61,11 @@ const skillSet: Skill[] = [
   { name: "Next.js", icon: NextIcon, description: "Best JS fullstack Framework" },
   { name: "Netlify", icon: NetlifyIcon, description: "Nice static site host" },
   { name: "Docusaurus", icon: DocusaurusIcon, description: "Best framework to host docs" },
+  {name: "Docker", icon: DockerIcon, description: "Best containerization platform" },
+  {name: "Grafana", icon: GrafanaIcon, description: "Opensource Logging and monitoring platform" },
+  {name: "Prometheus", icon: PrometheusIcon, description: "Opensource metrices collection platform" },
+  {name: "Loki", icon: LokiIcon, description: "Opensource log collection platform" },
+  {name: "Tempo", icon: TempoIcon, description: "Opensource trace collection platform" },
 ];
 function SkillSet() {
   return (
