@@ -21,7 +21,7 @@
  */
 
 import type { Project } from '@/types';
-import { Eye, Code } from 'lucide-react';
+import { Eye, Code, BookMarked } from 'lucide-react';
 import HoverTextInSlide from '@/components/ui/hover-text-in-slide';
 import useSFX from '@/hooks/useSFX';
 import { useWebsiteRouter } from '@/hooks';
@@ -74,6 +74,7 @@ function ProjectCard(project: Project) {
         previewLink,
         tags,
         sourceCodeLink,
+        docsLink,
     } = project;
     /**
      * Sound effect hooks for interactive elements
@@ -88,6 +89,7 @@ function ProjectCard(project: Project) {
      */
     const handleSourceCodeClick = useWebsiteRouter(sourceCodeLink || '');
     const handlePreviewClick = useWebsiteRouter(previewLink || '');
+    const handleDocsClick = useWebsiteRouter(docsLink || '');
 
     return (
         /**
@@ -95,10 +97,10 @@ function ProjectCard(project: Project) {
          * Provides full-width layout with padding for the card content
          */
         <div
-        className="min-w-full px-6 py-8 cursor-pointer"
-        onMouseOver={hoverProject}
+            className="min-w-full px-6 py-8 cursor-pointer"
+            onMouseOver={hoverProject}
         >
-          {/** * Content container with centered layout and vertical spacing *
+            {/** * Content container with centered layout and vertical spacing *
           Displays project information in a structured, readable format */}
             <div className="flex flex-col items-center text-center space-y-4">
                 {/* Project title with prominent styling */}
@@ -196,6 +198,23 @@ function ProjectCard(project: Project) {
                                         className="flex flex-row items-center text-white cascadia-code-regular underline bg-transparent border-none cursor-pointer"
                                     >
                                         <Eye className="w-4 h-4 mx-2" />
+                                    </button>
+                                </HoverTextInSlide>
+                            </div>
+                        )}
+                        {/* Live docs link - conditionally rendered if URL exists */}
+                        {docsLink && (
+                            <div onClick={handleDocsClick}>
+                                <HoverTextInSlide
+                                    text="Docs"
+                                    className={hoverTextInSlideClassName}
+                                    direction="right"
+                                >
+                                    <button
+                                        title="View docs"
+                                        className="flex flex-row items-center text-white cascadia-code-regular underline bg-transparent border-none cursor-pointer"
+                                    >
+                                        <BookMarked className="w-4 h-4 mx-2" />
                                     </button>
                                 </HoverTextInSlide>
                             </div>

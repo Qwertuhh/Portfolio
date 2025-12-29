@@ -32,6 +32,7 @@ interface Project {
   tags: string[];
   sourceCodeLink: string;
   previewLink?: string;
+  docsLink?: string;
 }
 
 interface SocialLink {
