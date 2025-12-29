@@ -221,7 +221,7 @@ function CustomCursor() {
      * - High contrast icons ensure visibility
      */
     return (
-        <div ref={cursorRef} className="custom-cursor">
+        <div ref={cursorRef} className="custom-cursor opacity-80">
             <img
                 ref={discRef}
                 src={isClicking ? discWithMusicNote : disc}

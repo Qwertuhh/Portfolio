@@ -41,6 +41,7 @@ const projectsShowcase: Project[] = [
             'In  this project I first time introduced to backend system. In this project I learn about API development, database management, and server-side logic.',
         tags: ['Node JS', 'Express', 'MongoDB'],
         sourceCodeLink: 'https://github.com/qwertuhh/mybackend',
+        docsLink: 'https://github.com/qwertuhh/mybackend',
     },
     {
         title: 'Welltrack',
