@@ -120,7 +120,6 @@ function AudioControl() {
     return (
         <Tooltip>
             <TooltipTrigger asChild>
-
                 <div className="fixed bottom-4 right-4 z-50">
                     {/* Collapsed State - Small Button */}
                     {isCollapsed && (
@@ -196,7 +195,10 @@ function AudioControl() {
             </TooltipTrigger>
             <TooltipContent>
                 <p className="funnel-display-bold">Audio Controls</p>
-                Press Ctrl+Alt+A to toggle audio controls
+                <p>
+
+                Press <span className="bg-gray-400 p-px px-[2px] mx-px text-black rounded cascadia-code-regular">Ctrl+Alt+A</span> to toggle audio controls
+                </p>
             </TooltipContent>
         </Tooltip>
     );
