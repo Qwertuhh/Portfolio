@@ -27,6 +27,7 @@ import LazyLoader from '@/components/ui/loader';
 import InteractionOverlay from '@/components/interaction-overlay';
 import useScrollSFX from './hooks/useScrollSFX';
 import CustomCursor from './components/ui/custom-cursor';
+import AudioControl from './components/ui/audio-control';
 const HeroComponent = lazy(() => import('@/components/hero-component'));
 const Navbar = lazy(() => import('@/components/navbar'));
 const AboutMe = lazy(() => import('@/components/about-me'));
@@ -46,6 +47,7 @@ function App(): JSX.Element {
             <InteractionOverlay onInteraction={handleInteraction} />
             {hasInteracted && (
                 <>
+                <AudioControl />
                     <Suspense fallback={<LazyLoader />}>
                         <Navbar />
                     </Suspense>
