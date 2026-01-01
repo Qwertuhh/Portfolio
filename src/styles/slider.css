@@ -1,0 +1,21 @@
+/* For Chrome, Safari, Edge */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: white;        /* 🔴 red marker */
+  border: 2px solid black; /* ⬛ black border */
+  border-radius: 50%;      /* round thumb */
+  cursor: pointer;
+}
+
+/* For Firefox */
+.slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
