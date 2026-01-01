@@ -30,7 +30,7 @@ function ClassicWebsiteButton() {
     );
     return (
         <div
-            className="flex justify-center"
+            className="flex justify-center h-4xl"
             onMouseEnter={useSFX('hover3', 'classic-website')}
         >
             <Tooltip label="This is my old portfolio website" className="">
@@ -38,8 +38,8 @@ function ClassicWebsiteButton() {
                     onClick={handleClassicWebsiteClick}
                     className="league-script-regular z-45 text-4xl mx-6 my-4 text-white cursor-pointer"
                 >
-                    visit my{' '}
-                    <span className="rouge-script-regular">Classic</span>{' '}
+                    visit my
+                    <span className="rouge-script-regular">Classic</span>
                     Website
                 </button>
             </Tooltip>
