@@ -45,12 +45,12 @@ function AudioControl() {
     };
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 bg-black/80 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+        <div className="fixed bottom-4 right-4 z-50 bg-white/80 backdrop-blur-sm rounded-lg p-3 border-2 border-black text-black">
             <div className="flex items-center gap-3">
                 {/* Mute/Unmute Toggle Button */}
                 <button
                     onClick={toggleMute}
-                    className="text-white hover:text-white/80 transition-colors p-2 rounded-md hover:bg-white/10"
+                    className="text-black hover:text-black/80 transition-colors p-2 rounded-md hover:bg-black/10"
                     title={muted ? 'Unmute' : 'Mute'}
                     aria-label={muted ? 'Unmute audio' : 'Mute audio'}
                 >
@@ -70,13 +70,13 @@ function AudioControl() {
                         step="0.1"
                         value={volume}
                         onChange={handleVolumeChange}
-                        className="w-24 h-1 bg-white/20 rounded-lg appearance-none cursor-pointer slider"
+                        className="w-24 h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer slider"
                         aria-label="Volume control"
-                        aria-valuemin="0"
-                        aria-valuemax="1"
+                        aria-valuemin={0}
+                        aria-valuemax={1}
                         aria-valuetext={`${Math.round(volume * 100)}%`}
                     />
-                    <span className="text-white text-sm min-w-12 text-right">
+                    <span className="doto-bold text-2xl min-w-12 text-right">
                         {Math.round(volume * 100)}%
                     </span>
                 </div>
