@@ -5,6 +5,8 @@ This repository showcases my projects and technical skills, highlighting my lear
 - [To visit my portfolio](https://qwertuhh.netlify.app/)
 - [To visit my classic portfolio](https://qwertuhh-classic.netlify.app/)
 
+read the [docs](https://qwertuhh-mydocs.netlify.app/docs/Projects/Portfolio/overview) for more information
+
 ---
 
 ## **Acknowledgements**

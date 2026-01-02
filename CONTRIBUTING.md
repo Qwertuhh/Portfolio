@@ -1,6 +1,6 @@
 # Contributing to Portfolio
 
-First off, thanks for taking the time to contribute! 
+First off, thanks for taking the time to contribute!
 
 ## Getting Started
 
