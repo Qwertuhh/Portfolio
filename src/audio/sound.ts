@@ -20,41 +20,139 @@
  * SOFTWARE.
  */
 
-import { soundManager } from "./soundManager";
+import { soundManager, type AudioConfig } from './soundManager';
+import { Howl } from 'howler';
 
-const sounds = {
-  click: soundManager.createSound(["/sfx/click.ogg", "/sfx/click.mp3"], {
-    volume: 0.25,
-  }),
+// Audio configuration with labels and independent volume control
+const audioConfigs: Record<string, AudioConfig> = {
+    click: {
+        label: 'Click Sound',
+        src: ['/sfx/click.ogg', '/sfx/click.mp3'],
+        volume: 0.25,
+        loop: false,
+        autoplay: false,
+        preload: true,
+        html5: false,
+        pool: 5,
+    },
+    hover: {
+        label: 'Hover Sound',
+        src: ['/sfx/hovering.ogg', '/sfx/hovering.mp3'],
+        volume: 0.5,
+        loop: false,
+        autoplay: false,
+        preload: true,
+        html5: false,
+        pool: 5,
+    },
+    hover2: {
+        label: 'Hover Sound 2',
+        src: ['/sfx/hovering2.ogg', '/sfx/hovering2.mp3'],
+        volume: 0.25,
+        loop: false,
+        autoplay: false,
+        preload: true,
+        html5: false,
+        pool: 5,
+    },
+    scroll: {
+        label: 'Scroll Sound',
+        src: ['/sfx/scrolling.ogg'],
+        volume: 0.25,
+        loop: false,
+        autoplay: false,
+        preload: true,
+        html5: false,
+        pool: 5,
+    },
+    hover3: {
+        label: 'Typewriter Hover',
+        src: [
+            '/sfx/hard-typewriter-click.ogg',
+            '/sfx/hard-typewriter-click.mp3',
+        ],
+        volume: 0.25,
+        loop: false,
+        autoplay: false,
+        preload: true,
+        html5: false,
+        pool: 5,
+    },
+    typewriterClick: {
+        label: 'Typewriter Click',
+        src: [
+            '/sfx/soft-typewriter-click.ogg',
+            '/sfx/soft-typewriter-click.mp3',
+        ],
+        volume: 0.25,
+        loop: false,
+        autoplay: false,
+        preload: true,
+        html5: false,
+        pool: 5,
+    },
+};
 
-  hover: soundManager.createSound(["/sfx/hovering.ogg", "/sfx/hovering.mp3"], {
-    volume: 0.5,
-  }),
-  hover2: soundManager.createSound(
-    ["/sfx/hovering2.ogg", "/sfx/hovering2.mp3"],
-    {
-      volume: 0.25,
-    }
-  ),
+// Create sound instances with the new manager
+const sounds: Record<string, Howl> = {};
 
-  scroll: soundManager.createSound(["/sfx/scrolling.ogg"], {
-    volume: 0.25,
-  }),
-  hover3: soundManager.createSound(
-    ["/sfx/hard-typewriter-click.ogg", "/sfx/hard-typewriter-click.mp3"],
-    {
-      volume: 0.25,
+// Initialize all sounds
+for (const [id, config] of Object.entries(audioConfigs)) {
+    sounds[id] = soundManager.createSound(id, config);
+}
+
+// Helper functions for audio control
+export const playSound = (id: keyof typeof sounds): void => {
+    const sound = sounds[id];
+    if (sound) {
+        sound.play();
     }
-  ),
-  typewriterClick: soundManager.createSound(
-    ["/sfx/soft-typewriter-click.ogg", "/sfx/soft-typewriter-click.mp3"],
-    {
-      volume: 0.25,
-    }
-  ),
+};
+
+export const setSoundVolume = (
+    id: keyof typeof sounds,
+    volume: number
+): void => {
+    soundManager.setIndividualVolume(id, volume);
+};
+
+export const getSoundVolume = (id: keyof typeof sounds): number => {
+    return soundManager.getIndividualVolume(id);
+};
+
+export const getSoundLabel = (id: keyof typeof sounds): string => {
+    return soundManager.getSoundLabel(id);
+};
+
+export const getSoundConfig = (
+    id: keyof typeof sounds
+): AudioConfig | undefined => {
+    return soundManager.getSoundConfig(id);
+};
+
+export const getAllSounds = () => {
+    return soundManager.getAllSounds();
+};
+
+// Master volume controls
+export const setMasterVolume = (volume: number): void => {
+    soundManager.setMasterVolume(volume);
+};
+
+export const getMasterVolume = (): number => {
+    return soundManager.getMasterVolume();
+};
+
+export const toggleMute = (): void => {
+    soundManager.toggleMute();
+};
+
+export const isMuted = (): boolean => {
+    return soundManager.isMuted;
 };
 
 type SoundType = keyof typeof sounds;
 
+// Export the sounds object for backward compatibility
 export { sounds };
-export type { SoundType };
+export type { SoundType, AudioConfig };

@@ -160,19 +160,15 @@ function AudioControl() {
                                 {/* Volume Slider */}
                                 <div className="flex items-center gap-2">
                                     <input
+                                        id="volume"
                                         type="range"
+                                        placeholder="Volume"
                                         min="0"
                                         max="1"
-                                        step="0.1"
+                                        step="0.01"
                                         value={volume}
                                         onChange={handleVolumeChange}
                                         className="w-24 h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer slider"
-                                        aria-label="Volume control"
-                                        aria-valuemin={0}
-                                        aria-valuemax={1}
-                                        aria-valuetext={`${Math.round(
-                                            volume * 100
-                                        )}%`}
                                     />
                                     <span className="doto-bold text-2xl min-w-12 text-right">
                                         {Math.round(volume * 100)}%
@@ -196,8 +192,11 @@ function AudioControl() {
             <TooltipContent>
                 <p className="funnel-display-bold">Audio Controls</p>
                 <p>
-
-                Press <span className="bg-gray-400 p-px px-[2px] mx-px text-black rounded cascadia-code-regular">Ctrl+Alt+A</span> to toggle audio controls
+                    Press{' '}
+                    <span className="bg-gray-400 p-px px-[2px] mx-px text-black rounded cascadia-code-regular">
+                        Ctrl+Alt+A
+                    </span>{' '}
+                    to toggle audio controls
                 </p>
             </TooltipContent>
         </Tooltip>

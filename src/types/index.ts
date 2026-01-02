@@ -20,51 +20,78 @@
  * SOFTWARE.
  */
 
-import { type ReactNode } from "react";
+import { type ReactNode } from 'react';
 
-type ProjectThumbnailType = "IMAGE" | "VIDEO";
+type ProjectThumbnailType = 'IMAGE' | 'VIDEO';
 
 interface Project {
-  title: string;
-  imageSrc: string;
-  type: ProjectThumbnailType;
-  description: string;
-  tags: string[];
-  sourceCodeLink: string;
-  previewLink?: string;
-  docsLink?: string;
+    title: string;
+    imageSrc: string;
+    type: ProjectThumbnailType;
+    description: string;
+    tags: string[];
+    sourceCodeLink: string;
+    previewLink?: string;
+    docsLink?: string;
 }
 
 interface SocialLink {
-  name: string;
-  url: string;
-  icon: React.ReactNode;
+    name: string;
+    url: string;
+    icon: React.ReactNode;
 }
 
 interface Skill {
-  icon?: string;
-  name: string;
-  description: string;
+    icon?: string;
+    name: string;
+    description: string;
 }
 
 // * Audio Types
 
 interface AudioContextType {
-  muted: boolean;
-  volume: number;
-  toggleMute: () => void;
-  changeVolume: (value: number) => void;
+    muted: boolean;
+    volume: number;
+    toggleMute: () => void;
+    changeVolume: (value: number) => void;
 }
 
 interface AudioProviderProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
+// Export all audio-related types
+export * from './audio';
+
+// Export all store-related types
+export * from './store';
+
+// Re-export commonly used types for convenience
 export type {
-  ProjectThumbnailType,
-  Project,
-  SocialLink,
-  Skill,
-  AudioContextType,
-  AudioProviderProps,
+    // Audio types
+    AudioConfig,
+    AudioConfiguration,
+    SoundState,
+    SoundInfo,
+    AudioControllerState,
+    AudioControllerActions,
+} from './audio';
+
+export type {
+    // Store types
+    StoreState,
+    PersistOptions,
+    StoreApi,
+    AudioStoreSlice,
+    AudioStoreActions,
+} from './store';
+
+// Legacy types for backward compatibility
+export type {
+    ProjectThumbnailType,
+    Project,
+    SocialLink,
+    Skill,
+    AudioContextType,
+    AudioProviderProps,
 };

@@ -20,34 +20,34 @@
  * SOFTWARE.
  */
 
-import {  useState } from "react";
-import { soundManager } from "@/audio";
-import type { AudioContextType, AudioProviderProps } from "@/types";
-import { createContext } from "react";
+import { useState } from 'react';
+import { soundManager } from '@/audio';
+import type { AudioContextType, AudioProviderProps } from '@/types';
+import { createContext } from 'react';
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
 function AudioProvider({ children }: AudioProviderProps) {
-  const [muted, setMuted] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+    const [muted, setMuted] = useState(false);
+    const [volume, setVolume] = useState(0.5);
 
-  const toggleMute = () => {
-    soundManager.toggleMute();
-    setMuted(soundManager.isMuted);
-  };
+    const toggleMute = () => {
+        soundManager.toggleMute();
+        setMuted(soundManager.isMuted);
+    };
 
-  const changeVolume = (value: number) => {
-    soundManager.setVolume(value);
-    setVolume(value);
-  };
+    const changeVolume = (value: number) => {
+        soundManager.setMasterVolume(value);
+        setVolume(value);
+    };
 
-  return (
-    <AudioContext.Provider value={{ muted, volume, toggleMute, changeVolume }}>
-      {children}
-    </AudioContext.Provider>
-  );
+    return (
+        <AudioContext.Provider
+            value={{ muted, volume, toggleMute, changeVolume }}
+        >
+            {children}
+        </AudioContext.Provider>
+    );
 }
-
-
 
 export { AudioProvider, AudioContext };
