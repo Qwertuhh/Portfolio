@@ -33,9 +33,6 @@ const HeroComponent = lazy(() => import('@/components/hero-component'));
 const Navbar = lazy(() => import('@/components/navbar'));
 const AboutMe = lazy(() => import('@/components/about-me'));
 const Projects = lazy(() => import('@/components/projects'));
-const AudioControllerExample = lazy(
-    () => import('@/components/AudioControllerExample')
-);
 
 function App(): JSX.Element {
     const [hasInteracted, setHasInteracted] = useState(false);
@@ -66,9 +63,6 @@ function App(): JSX.Element {
                     </Suspense>
                     <Suspense fallback={<LazyLoader />}>
                         <Footer />
-                    </Suspense>
-                    <Suspense fallback={<LazyLoader />}>
-                        <AudioControllerExample />
                     </Suspense>
                 </>
             )}

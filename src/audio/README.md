@@ -4,31 +4,31 @@ This audio system provides comprehensive sound management with labels, independe
 
 ## Features
 
--   **Labels**: Each sound has a descriptive label for better identification
--   **Independent Volume Control**: Control volume for each sound individually
--   **Master Volume Control**: Global volume control that affects all sounds
--   **JSON Configuration**: Define sounds in JSON format with validation
--   **Zod Validation**: Automatic validation of audio configurations
--   **Zustand State Management**: Centralized state management with persistence
--   **localStorage Persistence**: Audio settings automatically saved and restored
--   **TypeScript Support**: Full type safety with TypeScript
--   **React Hook**: Easy integration with React components
--   **Backward Compatibility**: Existing code continues to work
+- **Labels**: Each sound has a descriptive label for better identification
+- **Independent Volume Control**: Control volume for each sound individually
+- **Master Volume Control**: Global volume control that affects all sounds
+- **JSON Configuration**: Define sounds in JSON format with validation
+- **Zod Validation**: Automatic validation of audio configurations
+- **Zustand State Management**: Centralized state management with persistence
+- **localStorage Persistence**: Audio settings automatically saved and restored
+- **TypeScript Support**: Full type safety with TypeScript
+- **React Hook**: Easy integration with React components
+- **Backward Compatibility**: Existing code continues to work
 
 ## Files Overview
 
 ### Core Files
 
--   `src/audio/soundManager.ts` - Enhanced SoundManager with labels and independent volume control
--   `src/audio/sound.ts` - Sound definitions and helper functions
--   `src/audio/audioConfig.ts` - JSON configuration schema and utilities
--   `src/audio/audioConfig.json` - Example JSON configuration
--   `src/stores/audioStore.ts` - Zustand store with localStorage persistence
--   `src/hooks/useAudioController.tsx` - Original React hook for audio management
--   `src/hooks/useEnhancedAudioController.tsx` - Enhanced hook with Zustand integration
--   `src/components/AudioInitializer.tsx` - Component for initializing audio on app load
--   `src/components/AudioControllerExample.tsx` - Example component demonstrating usage
--   `src/components/AudioAppExample.tsx` - Complete integration example
+- `src/audio/soundManager.ts` - Enhanced SoundManager with labels and independent volume control
+- `src/audio/sound.ts` - Sound definitions and helper functions
+- `src/audio/audioConfig.ts` - JSON configuration schema and utilities
+- `src/audio/audioConfig.json` - Example JSON configuration
+- `src/stores/audioStore.ts` - Zustand store with localStorage persistence
+- `src/hooks/useAudioController.tsx` - Original React hook for audio management
+- `src/hooks/useEnhancedAudioController.tsx` - Enhanced hook with Zustand integration
+- `src/components/AudioInitializer.tsx` - Component for initializing audio on app load
+- `src/components/AudioControllerExample.tsx` - Example component demonstrating usage
+- `src/components/AudioAppExample.tsx` - Complete integration example
 
 ## Usage
 

@@ -20,8 +20,6 @@
  * SOFTWARE.
  */
 
-import { type ReactNode } from 'react';
-
 type ProjectThumbnailType = 'IMAGE' | 'VIDEO';
 
 interface Project {
@@ -56,36 +54,6 @@ interface AudioContextType {
     changeVolume: (value: number) => void;
 }
 
-interface AudioProviderProps {
-    children: ReactNode;
-}
-
-// Export all audio-related types
-export * from './audio';
-
-// Export all store-related types
-export * from './store';
-
-// Re-export commonly used types for convenience
-export type {
-    // Audio types
-    AudioConfig,
-    AudioConfiguration,
-    SoundState,
-    SoundInfo,
-    AudioControllerState,
-    AudioControllerActions,
-} from './audio';
-
-export type {
-    // Store types
-    StoreState,
-    PersistOptions,
-    StoreApi,
-    AudioStoreSlice,
-    AudioStoreActions,
-} from './store';
-
 // Legacy types for backward compatibility
 export type {
     ProjectThumbnailType,
@@ -93,5 +61,4 @@ export type {
     SocialLink,
     Skill,
     AudioContextType,
-    AudioProviderProps,
 };

@@ -18,7 +18,9 @@ function Footer() {
             onMouseOver={hoverFooter}
         >
             <div className="flex flex-col lg:flex-row items-center justify-center gap-4 p-4 w-full max-w-6xl">
-                <ul className="flex w-full lg:flex-col lg:w-40 lg:scroll-auto gap-4 p-4 lg:p-0 funnel-display-regular cursor-pointer text-center lg:text-left" style={{ justifyContent: 'space-evenly' }}>
+                <ul
+                    className="flex w-full lg:flex-col lg:w-40 lg:scroll-auto gap-4 p-4 lg:p-0 funnel-display-regular cursor-pointer text-center lg:text-left not-lg:justify-evenly"
+                >
                     <li
                         className="underline underline-offset-2 hover:underline-offset-4 "
                         onClick={() => {

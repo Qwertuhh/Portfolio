@@ -22,12 +22,12 @@
 
 import { useState } from 'react';
 import { soundManager } from '@/audio';
-import type { AudioContextType, AudioProviderProps } from '@/types';
+import type { AudioContextType } from '@/types';
 import { createContext } from 'react';
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
-function AudioProvider({ children }: AudioProviderProps) {
+function AudioProvider({ children }: { children: React.ReactNode }) {
     const [muted, setMuted] = useState(false);
     const [volume, setVolume] = useState(0.5);
 
