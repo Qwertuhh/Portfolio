@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-import { Volume2, VolumeX, ChevronUp, ChevronDown } from 'lucide-react';
+import { Volume2, VolumeX, Bolt } from 'lucide-react';
 import useAudio from '@/hooks/useAudio';
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -130,7 +130,7 @@ function AudioControl() {
                             title="Expand Audio Controls"
                             aria-label="Expand audio controls"
                         >
-                            <ChevronUp className="w-6 h-6 text-black" />
+                            <Bolt className="w-5 h-5 text-black" />
                         </button>
                     )}
 
@@ -182,7 +182,7 @@ function AudioControl() {
                                     title="Collapse Audio Controls"
                                     aria-label="Collapse audio controls"
                                 >
-                                    <ChevronDown className="w-6 h-6" />
+                                    <Bolt className="w-5 h-5" />
                                 </button>
                             </div>
                         </div>
