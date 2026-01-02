@@ -28,6 +28,7 @@ import InteractionOverlay from '@/components/interaction-overlay';
 import useScrollSFX from '@/hooks/useScrollSFX';
 import CustomCursor from '@/components/ui/custom-cursor';
 import AudioControl from '@/components/ui/audio-control';
+import Footer from '@/components/footer';
 const HeroComponent = lazy(() => import('@/components/hero-component'));
 const Navbar = lazy(() => import('@/components/navbar'));
 const AboutMe = lazy(() => import('@/components/about-me'));
@@ -59,6 +60,9 @@ function App(): JSX.Element {
                     </Suspense>
                     <Suspense fallback={<LazyLoader />}>
                         <Projects />
+                    </Suspense>
+                    <Suspense fallback={<LazyLoader />}>
+                        <Footer />
                     </Suspense>
                 </>
             )}

@@ -26,7 +26,6 @@ import type { Project } from '@/types';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ProjectCard from '@/components/ui/project-card';
-import ClassicWebsiteButton from '@/components/classic-website-button';
 
 /**
  * Array of project data to be displayed in the showcase.
@@ -263,7 +262,6 @@ function Projects() {
                         )}
                     </div>
                 </div>
-                <ClassicWebsiteButton />
             </ImageBg>
         </div>
     );
