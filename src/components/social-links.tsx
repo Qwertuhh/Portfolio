@@ -30,7 +30,7 @@ import {
     XIcon,
 } from '@/images';
 import type { SocialLink } from '@/types';
-import Tooltip from '@/components/ui/tool-tip';
+import Tooltip from '@/components/ui/fancy-tooltip';
 import useSFX from '@/hooks/useSFX';
 
 const socialIconClass = `transition-colors duration-200 h-10 w-10 border-2 border-black rounded-[10px] p-1 group-hover:filter group-hover:brightness-0`;

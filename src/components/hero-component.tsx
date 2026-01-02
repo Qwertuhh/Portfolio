@@ -24,7 +24,7 @@ import { lazy, Suspense } from 'react';
 import clsx from 'clsx';
 import { Typewriter } from '@/components/ui/typewriter';
 import { DottedGlowBackground } from '@/components/ui/dotted-glow-background';
-import Tooltip from '@/components/ui/tool-tip';
+import Tooltip from '@/components/ui/fancy-tooltip';
 const SocialLinks = lazy(() => import('@/components/social-links'));
 import LazyLoader from '@/components/ui/loader';
 import HoverScrambleText from '@/components/ui/hover-scramble-text';
