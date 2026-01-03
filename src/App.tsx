@@ -34,8 +34,6 @@ const Navbar = lazy(() => import('@/components/navbar'));
 const AboutMe = lazy(() => import('@/components/about-me'));
 const Projects = lazy(() => import('@/components/projects'));
 
-import "@/styles/cursor.css";
-
 function App(): JSX.Element {
     const [hasInteracted, setHasInteracted] = useState(false);
 

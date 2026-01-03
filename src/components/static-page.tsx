@@ -50,7 +50,7 @@ function StaticPage() {
             <div className="max-w-4xl mx-auto p-8 prose prose-lg jetbrains-mono-regular">
                 <header className="mb-12 funnel-display-regular">
                     <h1 className="text-4xl font-bold mb-4">Arihant Jain</h1>
-                    <p className="text-xl text-gray-600 mb-2">
+                    <p className="text-md text-gray-600 mb-2">
                         Also known as <strong>Qwertuhh</strong>
                     </p>
                     <p className="text-lg">
@@ -65,6 +65,12 @@ function StaticPage() {
                             </span>
                         </strong>
                     </p>
+                    <div className="border-2 border-neutral-950 my-6 p-[2px]">
+
+                    <p className="text-[0.85em] p-2 bg-neutral-900 text-white cascadia-code-regular">
+                        This page has been created to serve to those user how only want to read about me and my projects.
+                    </p>
+                    </div>
                 </header>
 
                 <section className="mb-12">

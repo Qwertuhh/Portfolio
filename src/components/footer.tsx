@@ -23,6 +23,7 @@
 import { useWebsiteRouter } from '@/hooks/useWebsiteRouter';
 import useHandleScrollSmooth from '@/hooks/useHandelScrollSmooth';
 import useSFX from '@/hooks/useSFX';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
     const handleClassicWebsiteClick = useWebsiteRouter(
@@ -33,6 +34,7 @@ function Footer() {
     const handleSmoothScrollSourceCode = useHandleScrollSmooth('source-code');
 
     const hoverFooter = useSFX('hover2', 'footer');
+    const navigate = useNavigate();
 
     return (
         <footer
@@ -40,9 +42,7 @@ function Footer() {
             onMouseOver={hoverFooter}
         >
             <div className="flex flex-col lg:flex-row items-center justify-center gap-4 p-4 w-full max-w-6xl">
-                <ul
-                    className="flex w-full lg:flex-col lg:w-40 lg:scroll-auto gap-4 p-4 lg:p-0 funnel-display-regular cursor-pointer text-center lg:text-left not-lg:justify-evenly"
-                >
+                <ul className="flex w-full lg:flex-col lg:w-40 lg:scroll-auto gap-4 p-4 lg:p-0 funnel-display-regular cursor-pointer text-center lg:text-left not-lg:justify-evenly">
                     <li
                         className="underline underline-offset-2 hover:underline-offset-4 "
                         onClick={() => {
@@ -93,7 +93,9 @@ function Footer() {
                     website
                 </button>
                 <button
-                    onClick={handleClassicWebsiteClick}
+                    onClick={() => {
+                        navigate('/static');
+                    }}
                     className="h-12 league-script-regular z-45 text-xl lg:text-2xl px-2 lg:px-6 py-2 lg:py-2 border-2 border-white text-white cursor-pointer whitespace-nowrap"
                 >
                     visit my
