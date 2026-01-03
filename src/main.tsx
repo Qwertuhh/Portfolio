@@ -20,16 +20,23 @@
  * SOFTWARE.
  */
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import '@/styles/index.css'
-import App from '@/App.tsx'
-import { AudioProvider } from "@/audio";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import '@/styles/index.css';
+import App from '@/App.tsx';
+import { AudioProvider } from '@/audio';
+import StaticPage from '@/components/static-page';
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <AudioProvider>
-      <App />
-    </AudioProvider>
-  </StrictMode>
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+        <AudioProvider>
+            <Router>
+                <Routes>
+                    <Route path="/static" element={<StaticPage />} />
+                    <Route path="/*" element={<App />} />
+                </Routes>
+            </Router>
+        </AudioProvider>
+    </StrictMode>
 );
