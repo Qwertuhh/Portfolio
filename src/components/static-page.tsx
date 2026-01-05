@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 // Data objects for maintainability
 const technicalSkills = {
     Frontend: ['JavaScript', 'React', 'TypeScript', 'Next.js'],
@@ -36,8 +38,10 @@ const projects = [
 ];
 
 function StaticPage() {
-    
     const experienceYear = new Date().getFullYear() - 2022;
+    useEffect(() => {
+        document.title = 'Qwertuhh Portfolio | Static Page';
+    }, []);
     return (
         <>
             {/* { ? To overload cursor.css ? } */}
@@ -68,10 +72,10 @@ function StaticPage() {
                         </strong>
                     </p>
                     <div className="border-2 border-neutral-950 my-6 p-[2px]">
-
-                    <p className="text-[0.85em] p-2 bg-neutral-900 text-white cascadia-code-regular">
-                        This page has been created to serve to those user how only want to read about me and my projects.
-                    </p>
+                        <p className="text-[0.85em] p-2 bg-neutral-900 text-white cascadia-code-regular">
+                            This page has been created to serve to those user
+                            how only want to read about me and my projects.
+                        </p>
                     </div>
                 </header>
 
@@ -138,8 +142,10 @@ function StaticPage() {
                     </h2>
                     <div className="mb-6">
                         <p className=" mb-2">
-                            <span className="font-bold">{experienceYear}+ years</span> of
-                            software development experience
+                            <span className="font-bold">
+                                {experienceYear}+ years
+                            </span>{' '}
+                            of software development experience
                         </p>
                         <p className="">
                             Started learning software development in 2022,
