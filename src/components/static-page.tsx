@@ -36,6 +36,8 @@ const projects = [
 ];
 
 function StaticPage() {
+    
+    const experienceYear = new Date().getFullYear() - 2022;
     return (
         <>
             {/* { ? To overload cursor.css ? } */}
@@ -136,7 +138,7 @@ function StaticPage() {
                     </h2>
                     <div className="mb-6">
                         <p className=" mb-2">
-                            <span className="font-bold">4+ years</span> of
+                            <span className="font-bold">{experienceYear}+ years</span> of
                             software development experience
                         </p>
                         <p className="">
