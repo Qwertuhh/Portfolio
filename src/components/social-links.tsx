@@ -64,7 +64,7 @@ const socialLinks: SocialLink[] = [
     },
     {
         name: 'Medium',
-        url: 'https://medium.com/@arihantjain132407', // Replace with your actual Medium URL
+        url: 'https://arihantjaindotcom.medium.com', // Replace with your actual Medium URL
         icon: (
             <img
                 src={MediumIcon}
