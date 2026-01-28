@@ -48,7 +48,7 @@ const socialLinks: SocialLink[] = [
     },
     {
         name: 'X',
-        url: 'https://twitter.com/qwertuhh132407', // Replace with your actual X handle
+        url: 'https://x.com/arihantdotcom', // Replace with your actual X handle
         icon: <img src={XIcon} alt="X Icon" className={socialIconClass} />,
     },
     {

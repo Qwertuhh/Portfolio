@@ -12,7 +12,7 @@ const technicalSkills = {
 
 const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/qwertuhh' },
-    { name: 'X (Twitter)', url: 'https://twitter.com/qwertuhh132407' },
+    { name: 'X (Twitter)', url: 'https://x.com/arihantdotcom' },
     { name: 'Discord', url: 'https://discordapp.com/users/qwertuhh.dev' },
     { name: 'Medium', url: 'https://medium.com/@arihantjain132407' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/arihantjain-qwertuhh' },
